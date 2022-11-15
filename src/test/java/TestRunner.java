@@ -28,14 +28,14 @@ public class TestRunner {
         $(".btn.btn-primary").click();
     }
 
-    @AfterMethod
+    /*@AfterMethod
     public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
         if (testResult.getStatus() == ITestResult.FAILURE) {
             File scrFile = ((TakesScreenshot) DriverProvider.getDriver()).getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(scrFile, new File("errorScreenshots\\" + testResult.getName() + "-"
                     + Arrays.toString(testResult.getParameters()) +  ".jpg"));
         }
-    }
+    }*/
     public int navigateToStorefront(int tabNumber){
         $(".btn-bar.btn-toolbar.nav__actions-bar.dropleft").$(".cs-icon.dropdown-icon").click();
         $(By.linkText("Предпросмотр")).click();

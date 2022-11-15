@@ -2,7 +2,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
-public class DifferentTemplatesOfProductPageTest extends TestRunner{
+public class Vertical_TemplatesOfProductPageTest extends TestRunner{
     public void navigateToProductPage(){
         $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
         $x("//span[text()='Товары']").click();
@@ -44,5 +44,7 @@ public class DifferentTemplatesOfProductPageTest extends TestRunner{
          $(By.linkText("Сохранить")).click();
         navigateToStorefront(4); //Переходим на витрину
         screenshot("204 Product page with template 'AB Three columns'");
+        $x("//bdi[text()='DVD & Blu-ray Players']").click();
+
     }
 }
