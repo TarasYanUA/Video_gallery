@@ -21,14 +21,16 @@ public class TestRunner {
     @BeforeTest
     public void beforeMethod() {
         Configuration.browser = "chrome";
-        Configuration.holdBrowserOpen = true; //не закрываем браузер пока ведём разработку
+        Configuration.holdBrowserOpen = false; //не закрываем браузер пока ведём разработку
         //Configuration.screenshots = true; //делаем скриншоты при падении
         Configuration.browserSize = "1920x1050"; //Увеличиваем размер экрана
         open(BASIC_URL);
         $(".btn.btn-primary").click();
+        $("#bp_off_bottom_panel").click();
     }
 
     public int navigateToStorefront(int tabNumber){
+        $(By.linkText("Сохранить")).click();
         $(".btn-bar.btn-toolbar.nav__actions-bar.dropleft").$(".cs-icon.dropdown-icon").click();
         $(By.linkText("Предпросмотр")).click();
         getWebDriver().getWindowHandle(); switchTo().window(tabNumber);

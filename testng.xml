@@ -1,0 +1,9 @@
+<suit name="Video gallery">
+    <test name="Test suit">
+        <classes>
+            <class name="AddDifferentVideoToProductTest" />
+            <class name="Vertical_TemplatesOfProductPageTest" />
+            <class name="Horizontal_TemplatesOfProductPageTest" />
+        </classes>
+    </test>
+</suit>
