@@ -5,6 +5,10 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static taras.Constants.BASIC_URL;
 
+/*
+Модуль "Видео галерея" + тема Юни2(UltRu)
+*/
+
 public class TestRunner {
     @BeforeTest
     public void beforeMethod() {
