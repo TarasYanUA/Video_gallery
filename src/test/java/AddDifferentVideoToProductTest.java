@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.screenshot;
 
 public class AddDifferentVideoToProductTest extends TestRunner{
     @Test
-    public void VerifyAddingDifferentVideoToProduct(){
+    public void VerifyAddingDifferentVideosToProduct(){
         /*
         //Классы PageObject в Селенид 55:33
         */

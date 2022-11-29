@@ -5,11 +5,6 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Vertical_TemplatesOfProductPageTest extends TestRunner{
-    public void navigateToProductPage(){
-        $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
-        $x("//span[text()='Товары']").click();
-        $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'Toshiba BDX2150')]").click();
-    }
     @Test
     public void checkBigPictureFlatTemplateOfProductPage() {
         //Включаем Быстрый просмотр

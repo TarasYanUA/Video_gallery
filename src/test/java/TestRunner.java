@@ -24,4 +24,10 @@ public class TestRunner {
         getWebDriver().getWindowHandle(); switchTo().window(tabNumber);
     return tabNumber;
     }
+
+    public void navigateToProductPage(){
+        $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
+        $x("//span[text()='Товары']").click();
+        $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'Toshiba BDX2150')]").click();
+    }
 }
