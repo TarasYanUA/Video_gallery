@@ -13,7 +13,6 @@ public class AddDifferentVideoToProductTest extends TestRunner{
         */
         $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
         $x("//span[text()='Товары']").click();
-        $("#bp_off_bottom_panel").click();
         $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'Toshiba BDX2150')]").click();
         $("#ab__video_gallery").click();
 
@@ -53,6 +52,6 @@ public class AddDifferentVideoToProductTest extends TestRunner{
         $x("//li[@id=\"ab__video_gallery\"][@class=\"ty-tabs__item cm-js\"]").click();
         //Проверяем, что во вкладке больше одного видео
         $$("#tabs_content").shouldHave(CollectionCondition.size(1));
-        screenshot("101 Two videos on product page");
+        screenshot("101 Added videos on product page");
     }
 }

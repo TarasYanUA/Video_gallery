@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
@@ -7,7 +8,6 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
     public void navigateToProductPage(){
         $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
         $x("//span[text()='Товары']").click();
-        $("#bp_off_bottom_panel").click();
         $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'Toshiba BDX2150')]").click();
     }
     @Test
@@ -51,7 +51,8 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         navigateToStorefront(4); //Переходим на витрину
         screenshot("204 Vertical, 'AB Three columns'");
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
-        $x("//a[@data-ca-view-id=\"19\"][@data-ca-dialog-title=\"Quick product viewer\"]").click();
+        $x("//a[@data-ca-view-id=\"19\"][@data-ca-dialog-title=\"Quick product viewer\"]").hover().click();
+        $(".ui-dialog").shouldBe(Condition.visible).$(".icon-right-open-thin").shouldBe(Condition.enabled);
         screenshot("205 QuickView window");
     }
 }
