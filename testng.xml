@@ -4,6 +4,8 @@
             <class name="AddDifferentVideoToProductTest" />
             <class name="Vertical_TemplatesOfProductPageTest" />
             <class name="Horizontal_TemplatesOfProductPageTest" />
+            <class name="NoGallery_HorizontalView" />
+            <class name="NoGallery_VerticalView" />
         </classes>
     </test>
 </suit>

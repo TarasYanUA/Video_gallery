@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
     @Test
-    public void checkBigPictureFlatTemplateOfProductPage() {
+    public void checkHorizontal_BigPictureFlatTemplateOfProductPage() {
         //Включаем Горизонтальный вид
         $("#elm_menu_addons").hover();
         $("#elm_menu_addons_manage_addons").click();
@@ -26,7 +26,7 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         switchTo().window(0);
     }
     @Test
-    public void checkBigPictureTemplateOfProductPage() {
+    public void checkHorizontal_BigPictureTemplateOfProductPage() {
         $("#elm_details_layout").click();
         $x("//option[@value='bigpicture_template']").click();
         navigateToStorefront(2); //Переходим на витрину
@@ -34,7 +34,7 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         switchTo().window(0);
     }
     @Test
-    public void checkDefaultTemplateOfProductPage() {
+    public void checkHorizontal_DefaultTemplateOfProductPage() {
         $("#elm_details_layout").click();
         $x("//option[@value='default_template']").click();
         navigateToStorefront(3); //Переходим на витрину
@@ -42,7 +42,7 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         switchTo().window(0);
     }
     @Test
-    public void checkThreeColumnTemplateOfProductPageTest() {
+    public void checkHorizontal_ThreeColumnTemplateOfProductPageTest() {
         $("#elm_details_layout").click();
         $x("//option[@value='abt__ut2_three_columns_template']").click();
         navigateToStorefront(4); //Переходим на витрину
@@ -53,6 +53,6 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         $x("//a[contains(@href, 'toshiba-bdx2150-blu-ray-player/')]").hover();
         $x("//a[@data-ca-view-id=\"19\"][@data-ca-dialog-title=\"Quick product viewer\"]").shouldBe(Condition.visible).click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".icon-right-open-thin").shouldBe(Condition.enabled);
-        screenshot("305 QuickView window");
+        screenshot("305 Horizontal, QuickView");
     }
 }

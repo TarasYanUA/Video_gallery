@@ -6,7 +6,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Vertical_TemplatesOfProductPageTest extends TestRunner{
     @Test
-    public void checkBigPictureFlatTemplateOfProductPage() {
+    public void checkVertical_BigPictureFlatTemplateOfProductPage() {
         //Включаем Быстрый просмотр
         $(".dropdown-toggle.settings").hover();
         $("#elm_menu_settings_Appearance").click();
@@ -24,7 +24,7 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         switchTo().window(0);
     }
     @Test
-    public void checkBigPictureTemplateOfProductPage() {
+    public void checkVertical_BigPictureTemplateOfProductPage() {
         $("#elm_details_layout").click();
         $x("//option[@value='bigpicture_template']").click();
         navigateToStorefront(2); //Переходим на витрину
@@ -32,7 +32,7 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         switchTo().window(0);
     }
     @Test
-    public void checkDefaultTemplateOfProductPage() {
+    public void checkVertical_DefaultTemplateOfProductPage() {
         $("#elm_details_layout").click();
         $x("//option[@value='default_template']").click();
         navigateToStorefront(3); //Переходим на витрину
@@ -40,7 +40,7 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         switchTo().window(0);
     }
      @Test
-    public void checkThreeColumnTemplateOfProductPageTest() {
+    public void checkVertical_ThreeColumnTemplateOfProductPageTest() {
         $("#elm_details_layout").click();
         $x("//option[@value='abt__ut2_three_columns_template']").click();
         navigateToStorefront(4); //Переходим на витрину
@@ -48,6 +48,6 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
         $x("//a[@data-ca-view-id=\"19\"][@data-ca-dialog-title=\"Quick product viewer\"]").hover().click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".icon-right-open-thin").shouldBe(Condition.enabled);
-        screenshot("205 QuickView window");
+        screenshot("205 Vertical, QuickView window");
     }
 }
