@@ -35,10 +35,25 @@ public class TestRunner {
         getWebDriver().getWindowHandle(); switchTo().window(tabNumber);
     return tabNumber;
     }
-
     public void navigateToProductPage(){
         $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
         $x("//span[text()='Товары']").click();
         $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'Toshiba BDX2150')]").click();
+    }
+    public void selectBigPictureFlatTemplate() {
+        $("#elm_details_layout").click();
+        $x("//option[@value='abt__ut2_bigpicture_flat_template']").click();
+    }
+    public void selectBigPictureTemplate() {
+        $("#elm_details_layout").click();
+        $x("//option[@value='bigpicture_template']").click();
+    }
+    public void selectDefaultTemplate() {
+        $("#elm_details_layout").click();
+        $x("//option[@value='default_template']").click();
+    }
+    public void shiftToRTLLanguage() {
+        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
+        $("a[data-ca-name='ar']").click();
     }
 }

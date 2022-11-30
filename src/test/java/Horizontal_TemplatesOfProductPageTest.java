@@ -19,34 +19,28 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         }
         //Работаем со страницей товара
         navigateToProductPage();
-        $("#elm_details_layout").click();
-        $x("//option[@value='abt__ut2_bigpicture_flat_template']").click();
+        selectBigPictureFlatTemplate();
         navigateToStorefront(1); //Переходим на витрину
         screenshot("310 Horizontal, 'AB Big picture, flat'");
-        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
-        $("a[data-ca-name='ar']").click();
+        shiftToRTLLanguage();
         screenshot("312 RTL, Horizontal, 'AB Big picture, flat'");
         switchTo().window(0);
     }
     @Test
     public void checkHorizontal_BigPictureTemplateOfProductPage() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='bigpicture_template']").click();
+        selectBigPictureTemplate();
         navigateToStorefront(2); //Переходим на витрину
         screenshot("321 Horizontal, 'Big picture'");
-        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
-        $("a[data-ca-name='ar']").click();
+        shiftToRTLLanguage();
         screenshot("322 RTL, Horizontal, 'Big picture'");
         switchTo().window(0);
     }
     @Test
     public void checkHorizontal_DefaultTemplateOfProductPage() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='default_template']").click();
+        selectDefaultTemplate();
         navigateToStorefront(3); //Переходим на витрину
         screenshot("331 Horizontal, 'Default'");
-        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
-        $("a[data-ca-name='ar']").click();
+        shiftToRTLLanguage();
         screenshot("332 RTL, Horizontal, 'Default'");
         switchTo().window(0);
     }
@@ -57,8 +51,7 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         navigateToStorefront(4); //Переходим на витрину
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         screenshot("341 Horizontal, 'AB Three columns'");
-        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
-        $("a[data-ca-name='ar']").click();
+        shiftToRTLLanguage();
         screenshot("342 RTL, Horizontal, 'AB Three columns'");
         $(".ty-text-links-wrapper").scrollTo();
         $x("//bdi[text()='DVD & Blu-ray Players']").click();

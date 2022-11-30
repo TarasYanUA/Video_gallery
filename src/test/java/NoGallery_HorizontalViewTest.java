@@ -18,37 +18,31 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         }
         //Работаем со страницей товара
         navigateToProductPage();
-        $("#elm_details_layout").click();
-        $x("//option[@value='abt__ut2_bigpicture_flat_template']").click();
+        selectBigPictureFlatTemplate();
         navigateToStorefront(1); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         screenshot("411 NoGallery, Horizontal, 'AB Big picture, flat'");
-        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
-        $("a[data-ca-name='ar']").click();
+        shiftToRTLLanguage();
         screenshot("412 RTL, NoGallery, Horizontal, 'AB Big picture, flat'");
         switchTo().window(0);
     }
     @Test
     public void checkNoGallery_Horizontal_BigPictureTemplateOfProductPage() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='bigpicture_template']").click();
+        selectBigPictureTemplate();
         navigateToStorefront(2); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         screenshot("421 NoGallery, Horizontal, 'Big picture'");
-        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
-        $("a[data-ca-name='ar']").click();
+        shiftToRTLLanguage();
         screenshot("422 RTL, NoGallery, Horizontal, 'Big picture'");
         switchTo().window(0);
     }
     @Test
     public void checkNoGallery_Horizontal_DefaultTemplateOfProductPage() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='default_template']").click();
+        selectDefaultTemplate();
         navigateToStorefront(3); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         screenshot("431 NoGallery, Horizontal, 'Default'");
-        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
-        $("a[data-ca-name='ar']").click();
+        shiftToRTLLanguage();
         screenshot("432 RTL, NoGallery, Horizontal, 'Default'");
         switchTo().window(0);
     }
@@ -60,8 +54,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         screenshot("441 NoGallery, Horizontal, 'AB Three columns'");
-        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
-        $("a[data-ca-name='ar']").click();
+        shiftToRTLLanguage();
         screenshot("442 RTL, NoGallery, Horizontal, 'AB Three columns'");
         $(".ty-text-links-wrapper").scrollTo();
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
