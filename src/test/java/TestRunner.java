@@ -1,17 +1,19 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static taras.Constants.BASIC_URL;
 
 /*
-Модуль "Видео галерея" + тема Юни2(UltRu)
+Модуль "Видео галерея" + тема Юни2(UltRu). Можно установить весь пакет темы Юни2.
+Запускать через файл testng.xml
 */
 
 public class TestRunner {
-    @BeforeTest
-    public void beforeMethod() {
+    @BeforeClass
+    public void openBrowser() {
         Configuration.browser = "chrome";
         Configuration.holdBrowserOpen = false; //не закрываем браузер пока ведём разработку
         Configuration.screenshots = true; //делаем скриншоты при падении
@@ -19,6 +21,11 @@ public class TestRunner {
         open(BASIC_URL);
         $(".btn.btn-primary").click();
         $("#bp_off_bottom_panel").click();
+    }
+
+    @AfterClass
+    public void closeBrowser() {
+        Selenide.closeWebDriver();
     }
 
     public int navigateToStorefront(int tabNumber){

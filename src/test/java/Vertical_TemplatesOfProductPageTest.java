@@ -20,7 +20,10 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         $("#elm_details_layout").click();
         $x("//option[@value='abt__ut2_bigpicture_flat_template']").click();
         navigateToStorefront(1); //Переходим на витрину
-        screenshot("201 Vertical, 'AB Big picture, flat'");
+        screenshot("211 Vertical, 'AB Big picture, flat'");
+        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
+        $("a[data-ca-name='ar']").click();
+        screenshot("212 RTL, Vertical, 'AB Big picture, flat'");
         switchTo().window(0);
     }
     @Test
@@ -28,7 +31,10 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         $("#elm_details_layout").click();
         $x("//option[@value='bigpicture_template']").click();
         navigateToStorefront(2); //Переходим на витрину
-        screenshot("202 Vertical, 'Big picture'");
+        screenshot("221 Vertical, 'Big picture'");
+        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
+        $("a[data-ca-name='ar']").click();
+        screenshot("222 RTL, Vertical, 'Big picture'");
         switchTo().window(0);
     }
     @Test
@@ -36,7 +42,10 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         $("#elm_details_layout").click();
         $x("//option[@value='default_template']").click();
         navigateToStorefront(3); //Переходим на витрину
-        screenshot("203 Vertical, 'Default'");
+        screenshot("231 Vertical, 'Default'");
+        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
+        $("a[data-ca-name='ar']").click();
+        screenshot("232 RTL, Vertical, 'Default'");
         switchTo().window(0);
     }
      @Test
@@ -44,10 +53,13 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         $("#elm_details_layout").click();
         $x("//option[@value='abt__ut2_three_columns_template']").click();
         navigateToStorefront(4); //Переходим на витрину
-        screenshot("204 Vertical, 'AB Three columns'");
+        screenshot("241 Vertical, 'AB Three columns'");
+        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
+        $("a[data-ca-name='ar']").click();
+        screenshot("242 RTL, Vertical, 'AB Three columns'");
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
         $x("//a[@data-ca-view-id=\"19\"][@data-ca-dialog-title=\"Quick product viewer\"]").hover().click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".icon-right-open-thin").shouldBe(Condition.enabled);
-        screenshot("205 Vertical, QuickView window");
+        screenshot("251 Vertical, QuickView window");
     }
 }

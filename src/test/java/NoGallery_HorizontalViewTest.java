@@ -22,7 +22,10 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         $x("//option[@value='abt__ut2_bigpicture_flat_template']").click();
         navigateToStorefront(1); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
-        screenshot("401 NoGallery, Horizontal, 'AB Big picture, flat'");
+        screenshot("411 NoGallery, Horizontal, 'AB Big picture, flat'");
+        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
+        $("a[data-ca-name='ar']").click();
+        screenshot("412 RTL, NoGallery, Horizontal, 'AB Big picture, flat'");
         switchTo().window(0);
     }
     @Test
@@ -31,7 +34,10 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         $x("//option[@value='bigpicture_template']").click();
         navigateToStorefront(2); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
-        screenshot("402 NoGallery, Horizontal, 'Big picture'");
+        screenshot("421 NoGallery, Horizontal, 'Big picture'");
+        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
+        $("a[data-ca-name='ar']").click();
+        screenshot("422 RTL, NoGallery, Horizontal, 'Big picture'");
         switchTo().window(0);
     }
     @Test
@@ -40,7 +46,10 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         $x("//option[@value='default_template']").click();
         navigateToStorefront(3); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
-        screenshot("403 NoGallery, Horizontal, 'Default'");
+        screenshot("431 NoGallery, Horizontal, 'Default'");
+        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
+        $("a[data-ca-name='ar']").click();
+        screenshot("432 RTL, NoGallery, Horizontal, 'Default'");
         switchTo().window(0);
     }
     @Test
@@ -50,12 +59,15 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         navigateToStorefront(4); //Переходим на витрину
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
-        screenshot("404 NoGallery, Horizontal, 'AB Three columns'");
+        screenshot("441 NoGallery, Horizontal, 'AB Three columns'");
+        $("a[id*='sw_select_en_wrap_language']").click();   //Переключаемся на язык RTL
+        $("a[data-ca-name='ar']").click();
+        screenshot("442 RTL, NoGallery, Horizontal, 'AB Three columns'");
         $(".ty-text-links-wrapper").scrollTo();
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
         $x("//a[contains(@href, 'toshiba-bdx2150-blu-ray-player/')]").hover();
         $x("//a[@data-ca-view-id=\"19\"][@data-ca-dialog-title=\"Quick product viewer\"]").shouldBe(Condition.visible).click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
-        screenshot("405 NoGallery, Horizontal, QuickView");
+        screenshot("451 NoGallery, Horizontal, QuickView");
     }
 }
