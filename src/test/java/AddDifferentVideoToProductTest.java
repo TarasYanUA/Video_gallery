@@ -8,9 +8,6 @@ import static com.codeborne.selenide.Selenide.screenshot;
 public class AddDifferentVideoToProductTest extends TestRunner{
     @Test
     public void VerifyAddingDifferentVideosToProduct(){
-        /*
-        //Классы PageObject в Селенид 55:33
-        */
         $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
         $x("//span[text()='Товары']").click();
         $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'Toshiba BDX2150')]").click();

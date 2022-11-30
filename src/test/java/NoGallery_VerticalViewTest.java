@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
-public class NoGallery_VerticalView extends TestRunner{
+public class NoGallery_VerticalViewTest extends TestRunner{
     @Test
     public void checkNoGallery_Vertical_BigPictureFlatTemplateOfProductPage() {
     //Включаем Вертикальный вид

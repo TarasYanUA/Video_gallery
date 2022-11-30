@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.switchTo;
 
-public class NoGallery_HorizontalView extends TestRunner{
+public class NoGallery_HorizontalViewTest extends TestRunner{
     @Test
     public void checkNoGallery_Horizontal_BigPictureFlatTemplateOfProductPage() {
         //Включаем вид без галереи
