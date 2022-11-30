@@ -65,8 +65,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         screenshot("442 RTL, NoGallery, Horizontal, 'AB Three columns'");
         $(".ty-text-links-wrapper").scrollTo();
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
-        $x("//a[contains(@href, 'toshiba-bdx2150-blu-ray-player/')]").hover();
-        $x("//a[@data-ca-view-id=\"19\"][@data-ca-dialog-title=\"Quick product viewer\"]").shouldBe(Condition.visible).click();
+        $x("//a[@data-ca-view-id=\"19\"][@data-ca-target-id=\"product_quick_view\"]").hover().click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
         screenshot("451 NoGallery, Horizontal, QuickView");
     }

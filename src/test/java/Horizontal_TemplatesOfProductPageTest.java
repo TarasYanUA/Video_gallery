@@ -62,8 +62,7 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         screenshot("342 RTL, Horizontal, 'AB Three columns'");
         $(".ty-text-links-wrapper").scrollTo();
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
-        $x("//a[contains(@href, 'toshiba-bdx2150-blu-ray-player/')]").hover();
-        $x("//a[@data-ca-view-id=\"19\"][@data-ca-dialog-title=\"Quick product viewer\"]").shouldBe(Condition.visible).click();
+        $x("//a[@data-ca-view-id=\"19\"][@data-ca-target-id=\"product_quick_view\"]").hover().click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".icon-right-open-thin").shouldBe(Condition.enabled);
         screenshot("351 Horizontal, QuickView");
     }

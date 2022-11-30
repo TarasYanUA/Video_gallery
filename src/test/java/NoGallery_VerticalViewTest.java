@@ -60,8 +60,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         $("a[data-ca-name='ar']").click();
         screenshot("542 NoGallery, Vertical, 'AB Three columns'");
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
-        $x("//a[@data-ca-view-id=\"19\"][@data-ca-dialog-title=\"Quick product viewer\"]").hover().click();
-        $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
+        $x("//a[@data-ca-view-id=\"19\"][@data-ca-target-id=\"product_quick_view\"]").hover().click();
         screenshot("551 NoGallery, Vertical, QuickView");
     }
 }

@@ -58,7 +58,7 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         $("a[data-ca-name='ar']").click();
         screenshot("242 RTL, Vertical, 'AB Three columns'");
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
-        $x("//a[@data-ca-view-id=\"19\"][@data-ca-dialog-title=\"Quick product viewer\"]").hover().click();
+        $x("//a[@data-ca-view-id=\"19\"][@data-ca-target-id=\"product_quick_view\"]").hover().click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".icon-right-open-thin").shouldBe(Condition.enabled);
         screenshot("251 Vertical, QuickView window");
     }
