@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.testng.annotations.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static taras.Constants.BASIC_URL;
 
 /*
 Модуль "Видео галерея" + тема Юни2(UltRu). Можно установить весь пакет темы Юни2.
@@ -12,6 +11,8 @@ import static taras.Constants.BASIC_URL;
 */
 
 public class TestRunner {
+    public static final String BASIC_URL = "https://trs.test.abt.team/4152ultru/admin.php";
+
     @BeforeClass
     public void openBrowser() {
         Configuration.browser = "chrome";
