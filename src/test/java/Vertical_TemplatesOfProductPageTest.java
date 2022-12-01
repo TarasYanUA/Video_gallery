@@ -44,8 +44,7 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
     }
     @Test
     public void checkVertical_ThreeColumnTemplateOfProductPageTest() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='abt__ut2_three_columns_template']").click();
+        selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         screenshot("241 Vertical, 'AB Three columns'");
         shiftToRTLLanguage();

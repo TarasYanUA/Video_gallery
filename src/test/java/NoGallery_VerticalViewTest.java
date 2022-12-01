@@ -46,8 +46,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
     }
     @Test
     public void checkNoGallery_Vertical_ThreeColumnTemplateOfProductPageTest() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='abt__ut2_three_columns_template']").click();
+        selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         screenshot("541 NoGallery, Vertical, 'AB Three columns'");
         shiftToRTLLanguage();

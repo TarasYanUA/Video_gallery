@@ -46,8 +46,7 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
     }
     @Test
     public void checkHorizontal_ThreeColumnTemplateOfProductPageTest() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='abt__ut2_three_columns_template']").click();
+        selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         screenshot("341 Horizontal, 'AB Three columns'");

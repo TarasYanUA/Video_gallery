@@ -48,8 +48,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
     }
     @Test
     public void checkNoGallery_Horizontal_ThreeColumnTemplateOfProductPageTest() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='abt__ut2_three_columns_template']").click();
+        selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
