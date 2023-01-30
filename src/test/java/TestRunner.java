@@ -29,12 +29,11 @@ public class TestRunner {
         Selenide.closeWebDriver();
     }
 
-    public int navigateToStorefront(int tabNumber){
+    public void navigateToStorefront(int tabNumber){
         $(By.linkText("Сохранить")).click();
         $(".btn-bar.btn-toolbar.nav__actions-bar.dropleft").$(".cs-icon.dropdown-icon").click();
         $(By.linkText("Предпросмотр")).click();
         getWebDriver().getWindowHandle(); switchTo().window(tabNumber);
-    return tabNumber;
     }
     public void navigateToProductPage(){
         $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
