@@ -54,11 +54,12 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         screenshot("441 NoGallery, Horizontal, 'AB Three columns'");
         shiftToRTLLanguage();
+        $(".ty-menu__items.cm-responsive-menu").scrollTo();
         screenshot("442 RTL, NoGallery, Horizontal, 'AB Three columns'");
         $(".ty-text-links-wrapper").scrollTo();
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
         $x("//a[@data-ca-view-id=\"19\"][@data-ca-target-id=\"product_quick_view\"]").hover().click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
-        screenshot("451 NoGallery, Horizontal, QuickView");
+        screenshot("451 RTL, NoGallery, Horizontal, QuickView");
     }
 }

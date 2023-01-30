@@ -51,11 +51,12 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         screenshot("341 Horizontal, 'AB Three columns'");
         shiftToRTLLanguage();
+        $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         screenshot("342 RTL, Horizontal, 'AB Three columns'");
         $(".ty-text-links-wrapper").scrollTo();
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
         $x("//a[@data-ca-view-id=\"19\"][@data-ca-target-id=\"product_quick_view\"]").hover().click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".icon-right-open-thin").shouldBe(Condition.enabled);
-        screenshot("351 Horizontal, QuickView");
+        screenshot("351 RTL, Horizontal, QuickView");
     }
 }
