@@ -8,8 +8,10 @@ import static com.codeborne.selenide.Selenide.screenshot;
 public class AddDifferentVideoToProductTest extends TestRunner{
     @Test
     public void VerifyAddingDifferentVideosToProduct(){
+        //Переходим на страницу редактирования товара
         $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
         $x("//span[text()='Товары']").click();
+        $(".cm-notification-close").click();
         $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'Toshiba BDX2150')]").click();
         $("#ab__video_gallery").click();
 
@@ -42,11 +44,11 @@ public class AddDifferentVideoToProductTest extends TestRunner{
         $(By.name("product_data[ab__vg_videos][4][type]")).selectOption("Ссылка");
         $("#ab__vg__video_path__1_1_2").click();
         $("#ab__vg__video_path__1_1_2").setValue("https://www.vidlii.com/watch?v=y5XmL9dJ2kN");
-        navigateToStorefront(1); //Переходим на витрину
 
+        //Переходим на витрину
+        navigateToStorefront(1);
         //Проверяем, что вкладка "Видео галерея присутствует на странице товара
-        $x("//li[@id=\"ab__video_gallery\"][@class=\"ty-tabs__item cm-js\"]").shouldBe(Condition.exist);
-        $x("//li[@id=\"ab__video_gallery\"][@class=\"ty-tabs__item cm-js\"]").click();
+        $("li#ab__video_gallery.ty-tabs__item").shouldBe(Condition.exist).click();
         //Проверяем, что во вкладке больше одного видео
         $$("#tabs_content").shouldHave(CollectionCondition.size(1));
         screenshot("101 Added videos on product page");

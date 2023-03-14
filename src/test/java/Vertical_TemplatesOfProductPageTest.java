@@ -1,20 +1,10 @@
 import com.codeborne.selenide.Condition;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Vertical_TemplatesOfProductPageTest extends TestRunner{
     @Test
     public void checkVertical_BigPictureFlatTemplateOfProductPage() {
-        //Включаем Быстрый просмотр
-        $(".dropdown-toggle.settings").hover();
-        $("#elm_menu_settings_Appearance").click();
-        WebElement quickView = $x("//input[contains(@id, 'field___enable_quick_view_')]");
-        if (!quickView.isSelected()){
-        $x("//input[contains(@id, 'field___enable_quick_view_')]").click();
-        $(By.linkText("Сохранить")).click();
-        }
         //Работаем со страницей товара
         navigateToProductPage();
         selectBigPictureFlatTemplate();

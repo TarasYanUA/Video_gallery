@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.switchTo;
 public class NoGallery_HorizontalViewTest extends TestRunner{
     @Test
     public void checkNoGallery_Horizontal_BigPictureFlatTemplateOfProductPage() {
-        //Включаем вид без галереи
+        //Включаем вид мини-иконок без галереи
         $(".dropdown-toggle.settings").hover();
         $("#elm_menu_settings_Appearance").click();
         WebElement galleryCheckbox = $x("//input[contains(@id, 'field___thumbnails_gallery')]");

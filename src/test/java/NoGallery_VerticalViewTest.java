@@ -1,6 +1,6 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -9,12 +9,12 @@ public class NoGallery_VerticalViewTest extends TestRunner{
     public void checkNoGallery_Vertical_BigPictureFlatTemplateOfProductPage() {
     //Включаем Вертикальный вид
     $("#elm_menu_addons").hover();
-    $("#elm_menu_addons_manage_addons").click();
+    $("#elm_menu_addons_downloaded_add_ons").click();
     $("#addon_ab__video_gallery").$(".nowrap.inline-block-basic").click();
     $x("//div[@class=\"btn-group dropleft open\"]//a[contains(@href, 'selected_section=settings')]").click();
-    WebElement checkbox = $x("//input[contains(@id, 'addon_option_ab__video_gallery_vertical')]");
+    SelenideElement checkbox = $x("//input[contains(@id, 'addon_option_ab__video_gallery_vertical')]");
         if (!checkbox.isSelected()){
-        $x("//input[contains(@id, 'addon_option_ab__video_gallery_vertical')]").click();
+            checkbox.click();
         $(By.linkText("Сохранить")).click();
     }
     //Работаем со страницей товара
@@ -50,10 +50,10 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         navigateToStorefront(4); //Переходим на витрину
         screenshot("541 NoGallery, Vertical, 'AB Three columns'");
         shiftToRTLLanguage();
-        screenshot("542 NoGallery, Vertical, 'AB Three columns'");
+        screenshot("542 RTL, NoGallery, Vertical, 'AB Three columns'");
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
         $x("//a[@data-ca-view-id=\"19\"][@data-ca-target-id=\"product_quick_view\"]").hover().click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
-        screenshot("551 NoGallery, Vertical, QuickView");
+        screenshot("551 RTL, NoGallery, Vertical, QuickView");
     }
 }

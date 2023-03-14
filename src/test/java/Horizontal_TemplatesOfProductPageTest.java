@@ -1,6 +1,6 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -9,12 +9,12 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
     public void checkHorizontal_BigPictureFlatTemplateOfProductPage() {
         //Включаем Горизонтальный вид
         $("#elm_menu_addons").hover();
-        $("#elm_menu_addons_manage_addons").click();
+        $("#elm_menu_addons_downloaded_add_ons").click();
         $("#addon_ab__video_gallery").$(".nowrap.inline-block-basic").click();
         $x("//div[@class=\"btn-group dropleft open\"]//a[contains(@href, 'selected_section=settings')]").click();
-        WebElement checkbox = $x("//input[contains(@id, 'addon_option_ab__video_gallery_vertical')]");
+        SelenideElement checkbox = $x("//input[contains(@id, 'addon_option_ab__video_gallery_vertical')]");
         if (checkbox.isSelected()){
-            $x("//input[contains(@id, 'addon_option_ab__video_gallery_vertical')]").click();
+            checkbox.click();
             $(By.linkText("Сохранить")).click();
         }
         //Работаем со страницей товара
