@@ -2,7 +2,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.$;
 
-public class PreConditions_ConfigurationsTest extends TestRunner {
+public class AaPreConditions_ConfigurationsTest extends TestRunner {
     @Test
     public void setConfigurations(){
         //Устанавливаем CS-Cart настройки
