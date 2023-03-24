@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -21,8 +22,10 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         navigateToProductPage();
         selectBigPictureFlatTemplate();
         navigateToStorefront(1); //Переходим на витрину
+        Selenide.sleep(1000);
         screenshot("310 Horizontal, 'AB Big picture, flat'");
         shiftToRTLLanguage();
+        Selenide.sleep(1000);
         screenshot("312 RTL, Horizontal, 'AB Big picture, flat'");
         switchTo().window(0);
     }
@@ -30,8 +33,10 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
     public void checkHorizontal_BigPictureTemplateOfProductPage() {
         selectBigPictureTemplate();
         navigateToStorefront(2); //Переходим на витрину
+        Selenide.sleep(1000);
         screenshot("321 Horizontal, 'Big picture'");
         shiftToRTLLanguage();
+        Selenide.sleep(1000);
         screenshot("322 RTL, Horizontal, 'Big picture'");
         switchTo().window(0);
     }
@@ -39,8 +44,12 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
     public void checkHorizontal_DefaultTemplateOfProductPage() {
         selectDefaultTemplate();
         navigateToStorefront(3); //Переходим на витрину
+        $(".ty-thumbnails_gallery").scrollTo();
+        Selenide.sleep(1000);
         screenshot("331 Horizontal, 'Default'");
         shiftToRTLLanguage();
+        $(".ty-thumbnails_gallery").scrollTo();
+        Selenide.sleep(1000);
         screenshot("332 RTL, Horizontal, 'Default'");
         switchTo().window(0);
     }
@@ -49,14 +58,17 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
+        Selenide.sleep(1000);
         screenshot("341 Horizontal, 'AB Three columns'");
         shiftToRTLLanguage();
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
+        Selenide.sleep(1000);
         screenshot("342 RTL, Horizontal, 'AB Three columns'");
         $(".ty-text-links-wrapper").scrollTo();
         $x("//bdi[text()='DVD & Blu-ray Players']").click();
         $x("//a[@data-ca-view-id=\"19\"][@data-ca-target-id=\"product_quick_view\"]").hover().click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".icon-right-open-thin").shouldBe(Condition.enabled);
+        Selenide.sleep(1000);
         screenshot("351 RTL, Horizontal, QuickView");
     }
 }

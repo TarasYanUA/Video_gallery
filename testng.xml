@@ -1,7 +1,7 @@
 <suite name="Video gallery">
     <test name="Test suit">
         <classes>
-            <class name="AaPreConditions_ConfigurationsTest" />
+            <class name="PreConditions_ConfigurationsTest" />
             <class name="AddDifferentVideoToProductTest" />
             <class name="Vertical_TemplatesOfProductPageTest" />
             <class name="Horizontal_TemplatesOfProductPageTest" />

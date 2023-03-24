@@ -1,5 +1,6 @@
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
@@ -51,6 +52,7 @@ public class AddDifferentVideoToProductTest extends TestRunner{
         $("li#ab__video_gallery.ty-tabs__item").shouldBe(Condition.exist).click();
         //Проверяем, что во вкладке больше одного видео
         $$("#tabs_content").shouldHave(CollectionCondition.size(1));
+        Selenide.sleep(1500);
         screenshot("101 Added videos on product page");
     }
 }
