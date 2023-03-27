@@ -12,7 +12,7 @@ public class AddDifferentVideoToProductTest extends TestRunner{
         //Переходим на страницу редактирования товара
         $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
         $x("//span[text()='Товары']").click();
-        $(".cm-notification-close").click();
+        //$(".cm-notification-close").click();
         $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'Toshiba BDX2150')]").click();
         $("#ab__video_gallery").click();
 

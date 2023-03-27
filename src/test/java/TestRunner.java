@@ -13,12 +13,12 @@ import static com.codeborne.selenide.Selenide.*;
 */
 
 public class TestRunner {
-    public static final String BASIC_URL = "https://trs.test.abt.team/4161ultru_fast_navigation/admin.php";
+    public static final String BASIC_URL = "https://trs.test.abt.team/4161ultru_seo_filters/admin.php";
 
     @BeforeClass
     public void openBrowser() {
         Configuration.browser = "chrome";
-        Configuration.holdBrowserOpen = true; //не закрываем браузер пока ведём разработку
+        Configuration.holdBrowserOpen = false; //не закрываем браузер пока ведём разработку
         Configuration.screenshots = true; //делаем скриншоты при падении
         Configuration.browserSize = "1920x1050"; //Увеличиваем размер экрана
         open(BASIC_URL);
@@ -44,7 +44,7 @@ public class TestRunner {
     public void navigateToProductPage(){
         $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
         $x("//span[text()='Товары']").click();
-        $(".cm-notification-close").click();
+        //$(".cm-notification-close").click();
         $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'Toshiba BDX2150')]").click();
     }
     public void selectBigPictureFlatTemplate() {

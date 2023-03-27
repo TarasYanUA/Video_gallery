@@ -27,10 +27,10 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         shiftToRTLLanguage();
         Selenide.sleep(1000);
         screenshot("412 RTL, NoGallery, Horizontal, 'AB Big picture, flat'");
-        switchTo().window(0);
     }
     @Test
     public void checkNoGallery_Horizontal_BigPictureTemplateOfProductPage() {
+        switchTo().window(0);
         selectBigPictureTemplate();
         navigateToStorefront(2); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
@@ -40,10 +40,10 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("422 RTL, NoGallery, Horizontal, 'Big picture'");
-        switchTo().window(0);
     }
     @Test
     public void checkNoGallery_Horizontal_DefaultTemplateOfProductPage() {
+        switchTo().window(0);
         selectDefaultTemplate();
         navigateToStorefront(3); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
@@ -53,10 +53,10 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("432 RTL, NoGallery, Horizontal, 'Default'");
-        switchTo().window(0);
     }
     @Test
     public void checkNoGallery_Horizontal_ThreeColumnTemplateOfProductPageTest() {
+        switchTo().window(0);
         selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
