@@ -62,7 +62,7 @@ public class AddDifferentVideoToProductTest extends TestRunner{
 
         //Переходим на витрину
         navigateToStorefront(1);
-        //Проверяем, что вкладка "Видео галерея присутствует на странице товара
+        //Проверяем, что вкладка "Видео галерея" присутствует на странице товара
         $("#ab__video_gallery").shouldBe(Condition.exist).click();
         //Проверяем, что во вкладке больше одного видео
         $$(".ab__vg-video").shouldHave(CollectionCondition.size(4));
