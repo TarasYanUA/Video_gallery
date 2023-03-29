@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.switchTo;
 
 public class NoGallery_HorizontalViewTest extends TestRunner{
     @Test
-    public void checkNoGallery_Horizontal_BigPictureFlatTemplateOfProductPage() {
+    public void checkNoGallery_HorizontalView_BigPictureFlat() {
         //Включаем вид мини-иконок без галереи
         $(".dropdown-toggle.settings").hover();
         $("#elm_menu_settings_Appearance").click();
@@ -29,7 +29,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         screenshot("412 RTL, NoGallery, Horizontal, 'AB Big picture, flat'");
     }
     @Test
-    public void checkNoGallery_Horizontal_BigPictureTemplateOfProductPage() {
+    public void checkNoGallery_HorizontalView_BigPicture() {
         switchTo().window(0);
         selectBigPictureTemplate();
         navigateToStorefront(2); //Переходим на витрину
@@ -42,7 +42,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         screenshot("422 RTL, NoGallery, Horizontal, 'Big picture'");
     }
     @Test
-    public void checkNoGallery_Horizontal_DefaultTemplateOfProductPage() {
+    public void checkNoGallery_HorizontalView_Default() {
         switchTo().window(0);
         selectDefaultTemplate();
         navigateToStorefront(3); //Переходим на витрину
@@ -55,7 +55,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         screenshot("432 RTL, NoGallery, Horizontal, 'Default'");
     }
     @Test
-    public void checkNoGallery_Horizontal_ThreeColumnTemplateOfProductPageTest() {
+    public void checkNoGallery_HorizontalView_ThreeColumn() {
         switchTo().window(0);
         selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину

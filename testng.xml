@@ -3,8 +3,8 @@
         <classes>
             <class name="PreConditions_ConfigurationsTest" />
             <class name="AddDifferentVideoToProductTest" />
-            <class name="Vertical_TemplatesOfProductPageTest" />
-            <class name="Horizontal_TemplatesOfProductPageTest" />
+            <class name="Gallery_VerticalViewTest" />
+            <class name="Gallery_HorizontalViewTest" />
             <class name="NoGallery_HorizontalViewTest" />
             <class name="NoGallery_VerticalViewTest" />
         </classes>

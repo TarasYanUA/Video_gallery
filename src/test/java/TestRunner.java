@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 */
 
 public class TestRunner {
-    public static final String BASIC_URL = "https://trs.test.abt.team/4161ultru_seo_filters/admin.php";
+    public static final String BASIC_URL = "https://trs.test.abt.team/4162ulten_unitheme2/admin.php";
 
     @BeforeClass
     public void openBrowser() {
@@ -24,7 +24,7 @@ public class TestRunner {
         open(BASIC_URL);
         $(".btn.btn-primary").click();
         $("#bp_off_bottom_panel").click();
-        $(".cm-notification-close").click();
+        //$(".cm-notification-close").click();
     }
 
     @AfterClass
@@ -45,7 +45,7 @@ public class TestRunner {
         $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
         $x("//span[text()='Товары']").click();
         //$(".cm-notification-close").click();
-        $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'Toshiba BDX2150')]").click();
+        $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'adizero Rush Shoes')]").click();
     }
     public void selectBigPictureFlatTemplate() {
         $("#elm_details_layout").click();

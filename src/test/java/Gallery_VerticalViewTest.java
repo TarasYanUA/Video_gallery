@@ -3,9 +3,9 @@ import com.codeborne.selenide.Selenide;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
-public class Vertical_TemplatesOfProductPageTest extends TestRunner{
+public class Gallery_VerticalViewTest extends TestRunner{
     @Test
-    public void checkVertical_BigPictureFlatTemplateOfProductPage() {
+    public void checkGallery_VerticalView_BigPictureFlat() {
         //Работаем со страницей товара
         navigateToProductPage();
         selectBigPictureFlatTemplate();
@@ -18,7 +18,7 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         switchTo().window(0);
     }
     @Test
-    public void checkVertical_BigPictureTemplateOfProductPage() {
+    public void checkGallery_VerticalView_BigPicture() {
         selectBigPictureTemplate();
         navigateToStorefront(2); //Переходим на витрину
         Selenide.sleep(1000);
@@ -29,7 +29,7 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         switchTo().window(0);
     }
     @Test
-    public void checkVertical_DefaultTemplateOfProductPage() {
+    public void checkGallery_VerticalView_Default() {
         selectDefaultTemplate();
         navigateToStorefront(3); //Переходим на витрину
         Selenide.sleep(1000);
@@ -40,7 +40,7 @@ public class Vertical_TemplatesOfProductPageTest extends TestRunner{
         switchTo().window(0);
     }
     @Test
-    public void checkVertical_ThreeColumnTemplateOfProductPageTest() {
+    public void checkGallery_VerticalView_ThreeColumn() {
         selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         Selenide.sleep(1000);

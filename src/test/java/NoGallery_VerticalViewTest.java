@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class NoGallery_VerticalViewTest extends TestRunner{
     @Test
-    public void checkNoGallery_Vertical_BigPictureFlatTemplateOfProductPage() {
+    public void checkNoGallery_VerticalView_BigPictureFlat() {
     //Включаем Вертикальный вид
     $("#elm_menu_addons").hover();
     $("#elm_menu_addons_downloaded_add_ons").click();
@@ -30,7 +30,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
     switchTo().window(0);
     }
     @Test
-    public void checkNoGallery_Vertical_BigPictureTemplateOfProductPage() {
+    public void checkNoGallery_VerticalView_BigPicture() {
         selectBigPictureTemplate();
         navigateToStorefront(2); //Переходим на витрину
         Selenide.sleep(1000);
@@ -41,7 +41,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         switchTo().window(0);
     }
     @Test
-    public void checkNoGallery_Vertical_DefaultTemplateOfProductPage() {
+    public void checkNoGallery_VerticalView_Default() {
         selectDefaultTemplate();
         navigateToStorefront(3); //Переходим на витрину
         Selenide.sleep(1000);
@@ -52,7 +52,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         switchTo().window(0);
     }
     @Test
-    public void checkNoGallery_Vertical_ThreeColumnTemplateOfProductPageTest() {
+    public void checkNoGallery_VerticalView_ThreeColumn() {
         selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         Selenide.sleep(1000);

@@ -5,9 +5,9 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
-public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
+public class Gallery_HorizontalViewTest extends TestRunner {
     @Test
-    public void checkHorizontal_BigPictureFlatTemplateOfProductPage() {
+    public void checkGallery_HorizontalView_BigPictureFlat() {
         //Включаем Горизонтальный вид
         $("#elm_menu_addons").hover();
         $("#elm_menu_addons_downloaded_add_ons").click();
@@ -30,7 +30,7 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         switchTo().window(0);
     }
     @Test
-    public void checkHorizontal_BigPictureTemplateOfProductPage() {
+    public void checkGallery_HorizontalView_BigPicture() {
         selectBigPictureTemplate();
         navigateToStorefront(2); //Переходим на витрину
         Selenide.sleep(1000);
@@ -41,7 +41,7 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         switchTo().window(0);
     }
     @Test
-    public void checkHorizontal_DefaultTemplateOfProductPage() {
+    public void checkGallery_HorizontalView_Default() {
         selectDefaultTemplate();
         navigateToStorefront(3); //Переходим на витрину
         $(".ty-thumbnails_gallery").scrollTo();
@@ -54,7 +54,7 @@ public class Horizontal_TemplatesOfProductPageTest extends TestRunner {
         switchTo().window(0);
     }
     @Test
-    public void checkHorizontal_ThreeColumnTemplateOfProductPageTest() {
+    public void checkGallery_HorizontalView_ThreeColumn() {
         selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
