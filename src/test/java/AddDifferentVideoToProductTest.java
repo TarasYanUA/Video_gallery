@@ -17,7 +17,7 @@ public class AddDifferentVideoToProductTest extends TestRunner{
         $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'adizero Rush Shoes')]").click();
         $("#ab__video_gallery").click();
 
-        if(!($$("tr[id*='ab__vg_video_extra']").size() >1)) {
+        if($$("tr[id*='ab__vg_video_extra']").size() == 1) {
             //Добавляем видео с YouTube
             $x("//input[@name='product_data[ab__vg_videos][1][pos]']").click();
             $x("//input[@name='product_data[ab__vg_videos][1][pos]']").setValue("10");
