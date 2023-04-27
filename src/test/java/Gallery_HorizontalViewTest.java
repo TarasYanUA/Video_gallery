@@ -23,10 +23,10 @@ public class Gallery_HorizontalViewTest extends TestRunner {
         selectBigPictureFlatTemplate();
         navigateToStorefront(1); //Переходим на витрину
         Selenide.sleep(1000);
-        screenshot("310 Horizontal, 'AB Big picture, flat'");
+        screenshot("310 Gallery, Horizontal - Big picture,flat");
         shiftToRTLLanguage();
         Selenide.sleep(1000);
-        screenshot("312 RTL, Horizontal, 'AB Big picture, flat'");
+        screenshot("312 Gallery, Horizontal - Big picture,flat (RTL)");
     }
     @Test(priority = 2)
     public void checkGallery_HorizontalView_BigPicture() {
@@ -35,10 +35,10 @@ public class Gallery_HorizontalViewTest extends TestRunner {
         navigateToStorefront(2); //Переходим на витрину
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
-        screenshot("321 Horizontal, 'Big picture'");
+        screenshot("321 Gallery, Horizontal - Big picture");
         shiftToRTLLanguage();
         Selenide.sleep(1000);
-        screenshot("322 RTL, Horizontal, 'Big picture'");
+        screenshot("322 Gallery, Horizontal - Big picture (RTL)");
     }
     @Test(priority = 3)
     public void checkGallery_HorizontalView_Default() {
@@ -47,10 +47,10 @@ public class Gallery_HorizontalViewTest extends TestRunner {
         navigateToStorefront(3); //Переходим на витрину
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
-        screenshot("331 Horizontal, 'Default'");
+        screenshot("331 Gallery, Horizontal - Default");
         shiftToRTLLanguage();
         Selenide.sleep(1000);
-        screenshot("332 RTL, Horizontal, 'Default'");
+        screenshot("332 Gallery, Horizontal - Default (RTL)");
     }
     @Test(priority = 4)
     public void checkGallery_HorizontalView_ThreeColumn() {
@@ -59,12 +59,12 @@ public class Gallery_HorizontalViewTest extends TestRunner {
         navigateToStorefront(4); //Переходим на витрину
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
-        screenshot("341 Horizontal, 'AB Three columns'");
+        screenshot("341 Gallery, Horizontal - Three columns");
         shiftToRTLLanguage();
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
-        screenshot("342 RTL, Horizontal, 'AB Three columns'");
+        screenshot("342 Gallery, Horizontal - Three columns (RTL)");
         navigateToCategoryPageAndQuickView();
-        screenshot("351 RTL, Horizontal, QuickView");
+        screenshot("351 Gallery, Horizontal - QuickView (RTL)");
     }
 }

@@ -71,6 +71,7 @@ public class AddDifferentVideoToProductTest extends TestRunner{
         softAssert.assertTrue($$(".ab__vg-video").size() == 4,
                 "There is no 4 videos on the tab 'Video gallery' on the product page!");
         Selenide.sleep(1500);
-        screenshot("101 Added videos on product page");
+        screenshot("101 Videos are added on the product page");
+        softAssert.assertAll();
     }
 }

@@ -22,10 +22,10 @@ public class NoGallery_VerticalViewTest extends TestRunner{
     selectBigPictureFlatTemplate();
     navigateToStorefront(1); //Переходим на витрину
         Selenide.sleep(1000);
-    screenshot("511 NoGallery, Vertical, 'AB Big picture, flat'");
+    screenshot("511 NoGallery, Vertical - Big picture,flat");
     shiftToRTLLanguage();
         Selenide.sleep(1000);
-    screenshot("512 RTL, oGallery, Vertical, 'AB Big picture, flat'");
+    screenshot("512 NoGallery, Vertical - Big picture,flat (RTL)");
     }
     @Test(priority = 2)
     public void checkNoGallery_VerticalView_BigPicture() {
@@ -33,10 +33,10 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         selectBigPictureTemplate();
         navigateToStorefront(2); //Переходим на витрину
         Selenide.sleep(1000);
-        screenshot("521 NoGallery, Vertical, 'Big picture'");
+        screenshot("521 NoGallery, Vertical - Big picture");
         shiftToRTLLanguage();
         Selenide.sleep(1000);
-        screenshot("522 RTL, NoGallery, Vertical, 'Big picture'");
+        screenshot("522 NoGallery, Vertical - Big picture (RTL)");
     }
     @Test(priority = 3)
     public void checkNoGallery_VerticalView_Default() {
@@ -44,10 +44,10 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         selectDefaultTemplate();
         navigateToStorefront(3); //Переходим на витрину
         Selenide.sleep(1000);
-        screenshot("531 NoGallery, Vertical, 'Default'");
+        screenshot("531 NoGallery, Vertical - Default");
         shiftToRTLLanguage();
         Selenide.sleep(1000);
-        screenshot("532 RTL, NoGallery, Vertical, 'Default'");
+        screenshot("532 NoGallery, Vertical - Default (RTL)");
     }
     @Test(priority = 4)
     public void checkNoGallery_VerticalView_ThreeColumn() {
@@ -55,11 +55,11 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         Selenide.sleep(1000);
-        screenshot("541 NoGallery, Vertical, 'AB Three columns'");
+        screenshot("541 NoGallery, Vertical - Three columns");
         shiftToRTLLanguage();
         Selenide.sleep(1000);
-        screenshot("542 RTL, NoGallery, Vertical, 'AB Three columns'");
+        screenshot("542 NoGallery, Vertical - Three columns (RTL)");
         navigateToCategoryPageAndQuickView();
-        screenshot("551 RTL, NoGallery, Vertical, QuickView");
+        screenshot("551 NoGallery, Vertical - QuickView (RTL)");
     }
 }

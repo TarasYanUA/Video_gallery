@@ -22,10 +22,10 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         navigateToStorefront(1); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
-        screenshot("411 NoGallery, Horizontal, 'AB Big picture, flat'");
+        screenshot("411 NoGallery, Horizontal - Big picture,flat");
         shiftToRTLLanguage();
         Selenide.sleep(1000);
-        screenshot("412 RTL, NoGallery, Horizontal, 'AB Big picture, flat'");
+        screenshot("412 NoGallery, Horizontal - Big picture,flat (RTL)");
     }
     @Test(priority = 2)
     public void checkNoGallery_HorizontalView_BigPicture() {
@@ -34,11 +34,11 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         navigateToStorefront(2); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
-        screenshot("421 NoGallery, Horizontal, 'Big picture'");
+        screenshot("421 NoGallery, Horizontal - Big picture");
         shiftToRTLLanguage();
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
-        screenshot("422 RTL, NoGallery, Horizontal, 'Big picture'");
+        screenshot("422 NoGallery, Horizontal - Big picture (RTL)");
     }
     @Test(priority = 3)
     public void checkNoGallery_HorizontalView_Default() {
@@ -47,11 +47,11 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         navigateToStorefront(3); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
-        screenshot("431 NoGallery, Horizontal, 'Default'");
+        screenshot("431 NoGallery, Horizontal - Default");
         shiftToRTLLanguage();
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
-        screenshot("432 RTL, NoGallery, Horizontal, 'Default'");
+        screenshot("432 NoGallery, Horizontal - Default (RTL)");
     }
     @Test(priority = 4)
     public void checkNoGallery_HorizontalView_ThreeColumn() {
@@ -60,13 +60,13 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         navigateToStorefront(4); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
-        screenshot("441 NoGallery, Horizontal, 'AB Three columns'");
+        screenshot("441 NoGallery, Horizontal - Three columns");
         shiftToRTLLanguage();
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
-        screenshot("442 RTL, NoGallery, Horizontal, 'AB Three columns'");
+        screenshot("442 NoGallery, Horizontal - Three columns (RTL)");
         $(".ty-text-links-wrapper").scrollTo();
         navigateToCategoryPageAndQuickView();
-        screenshot("451 RTL, NoGallery, Horizontal, QuickView");
+        screenshot("451 NoGallery, Horizontal - QuickView (RTL)");
     }
 }
