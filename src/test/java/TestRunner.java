@@ -7,6 +7,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 /*
 Модуль "Видео галерея" v3.2.1 + тема Юни2(UltRu) v4.16.1b. Можно установить весь пакет темы Юни2.
+Работает во всех браузерах!
 Запустить тесты можно:
  1) Через файл testng.xml
  2) Через Surefire отчёт: перейти в "Терминал" и ввести "mvn clean test". После этого в папке "target -> surefire reports"
