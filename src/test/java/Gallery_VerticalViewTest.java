@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Gallery_VerticalViewTest extends TestRunner{
-    @Test
+    @Test(priority = 1)
     public void checkGallery_VerticalView_BigPictureFlat() {
         //Работаем со страницей товара
         navigateToProductPage();
@@ -15,21 +15,23 @@ public class Gallery_VerticalViewTest extends TestRunner{
         shiftToRTLLanguage();
         Selenide.sleep(1000);
         screenshot("212 RTL, Vertical, 'AB Big picture, flat'");
-        switchTo().window(0);
     }
-    @Test
+    @Test(priority = 2)
     public void checkGallery_VerticalView_BigPicture() {
+        switchTo().window(0);
         selectBigPictureTemplate();
         navigateToStorefront(2); //Переходим на витрину
+        $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
         screenshot("221 Vertical, 'Big picture'");
         shiftToRTLLanguage();
+        $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
         screenshot("222 RTL, Vertical, 'Big picture'");
-        switchTo().window(0);
     }
-    @Test
+    @Test(priority = 3)
     public void checkGallery_VerticalView_Default() {
+        switchTo().window(0);
         selectDefaultTemplate();
         navigateToStorefront(3); //Переходим на витрину
         Selenide.sleep(1000);
@@ -37,10 +39,10 @@ public class Gallery_VerticalViewTest extends TestRunner{
         shiftToRTLLanguage();
         Selenide.sleep(1000);
         screenshot("232 RTL, Vertical, 'Default'");
-        switchTo().window(0);
     }
-    @Test
+    @Test(priority = 4)
     public void checkGallery_VerticalView_ThreeColumn() {
+        switchTo().window(0);
         selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         Selenide.sleep(1000);
@@ -48,10 +50,7 @@ public class Gallery_VerticalViewTest extends TestRunner{
         shiftToRTLLanguage();
         Selenide.sleep(1000);
         screenshot("242 RTL, Vertical, 'AB Three columns'");
-        $x("//bdi[text()='DVD & Blu-ray Players']").click();
-        $x("//a[@data-ca-view-id=\"19\"][@data-ca-target-id=\"product_quick_view\"]").hover().click();
-        $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
-        Selenide.sleep(1000);
+        navigateToCategoryPageAndQuickView();
         screenshot("251 Vertical, QuickView window");
     }
 }

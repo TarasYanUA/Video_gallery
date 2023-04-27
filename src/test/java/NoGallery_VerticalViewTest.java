@@ -1,4 +1,3 @@
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
@@ -6,7 +5,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
 public class NoGallery_VerticalViewTest extends TestRunner{
-    @Test
+    @Test(priority = 1)
     public void checkNoGallery_VerticalView_BigPictureFlat() {
     //Включаем Вертикальный вид
     $("#elm_menu_addons").hover();
@@ -27,10 +26,10 @@ public class NoGallery_VerticalViewTest extends TestRunner{
     shiftToRTLLanguage();
         Selenide.sleep(1000);
     screenshot("512 RTL, oGallery, Vertical, 'AB Big picture, flat'");
-    switchTo().window(0);
     }
-    @Test
+    @Test(priority = 2)
     public void checkNoGallery_VerticalView_BigPicture() {
+        switchTo().window(0);
         selectBigPictureTemplate();
         navigateToStorefront(2); //Переходим на витрину
         Selenide.sleep(1000);
@@ -38,10 +37,10 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         shiftToRTLLanguage();
         Selenide.sleep(1000);
         screenshot("522 RTL, NoGallery, Vertical, 'Big picture'");
-        switchTo().window(0);
     }
-    @Test
+    @Test(priority = 3)
     public void checkNoGallery_VerticalView_Default() {
+        switchTo().window(0);
         selectDefaultTemplate();
         navigateToStorefront(3); //Переходим на витрину
         Selenide.sleep(1000);
@@ -49,10 +48,10 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         shiftToRTLLanguage();
         Selenide.sleep(1000);
         screenshot("532 RTL, NoGallery, Vertical, 'Default'");
-        switchTo().window(0);
     }
-    @Test
+    @Test(priority = 4)
     public void checkNoGallery_VerticalView_ThreeColumn() {
+        switchTo().window(0);
         selectThreeColumnTemplate();
         navigateToStorefront(4); //Переходим на витрину
         Selenide.sleep(1000);
@@ -60,10 +59,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         shiftToRTLLanguage();
         Selenide.sleep(1000);
         screenshot("542 RTL, NoGallery, Vertical, 'AB Three columns'");
-        $x("//bdi[text()='DVD & Blu-ray Players']").click();
-        $x("//a[@data-ca-view-id=\"19\"][@data-ca-target-id=\"product_quick_view\"]").hover().click();
-        $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
-        Selenide.sleep(1000);
+        navigateToCategoryPageAndQuickView();
         screenshot("551 RTL, NoGallery, Vertical, QuickView");
     }
 }

@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
@@ -13,7 +14,7 @@ import static com.codeborne.selenide.Selenide.*;
 */
 
 public class TestRunner {
-    public static final String BASIC_URL = "https://trs.test.abt.team/4162ulten_unitheme2/admin.php";
+    public static final String BASIC_URL = "https://trs.test.abt.team/4162mvru_video_gallery/admin.php";
 
     @BeforeClass
     public void openBrowser() {
@@ -47,6 +48,13 @@ public class TestRunner {
         //$(".cm-notification-close").click();
         $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'adizero Rush Shoes')]").click();
     }
+    public void navigateToCategoryPageAndQuickView(){
+        $(".ty-text-links-wrapper").scrollTo();
+        $x("//a[@class='ty-breadcrumbs__a']//bdi[text()='Apparel']").click();
+        $x("//a[@data-ca-view-id='78'][@data-ca-target-id='product_quick_view']").hover().click();
+        $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
+        Selenide.sleep(1000);
+    }
     public void selectBigPictureFlatTemplate() {
         $("#elm_details_layout").click();
         $x("//option[@value='abt__ut2_bigpicture_flat_template']").click();
@@ -64,7 +72,7 @@ public class TestRunner {
         $x("//option[@value='abt__ut2_three_columns_template']").click();
     }
     public void shiftToRTLLanguage() {
-        $("a[id*='sw_select_en_wrap_language']").click();
+        $("a[id*='sw_select'][id*='wrap_language']").scrollTo().click();
         $("a[data-ca-name='ar']").click();
     }
 }
