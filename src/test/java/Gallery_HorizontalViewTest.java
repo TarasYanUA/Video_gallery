@@ -37,6 +37,7 @@ public class Gallery_HorizontalViewTest extends TestRunner {
         Selenide.sleep(1000);
         screenshot("321 Gallery, Horizontal - Big picture");
         shiftToRTLLanguage();
+        $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
         screenshot("322 Gallery, Horizontal - Big picture (RTL)");
     }
