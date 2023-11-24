@@ -58,6 +58,7 @@ public class AddDifferentVideoToProductTest extends TestRunner{
             $(By.name("product_data[ab__vg_videos][7][type]")).selectOption("Ресурс");
             $("#ab__vg__video_path__1_1_2_3").click();
             $("#ab__vg__video_path__1_1_2_3").setValue("https://unitheme.net/images/ut2_banner_videos/33_52_ABSTRACT.mp4");
+            $(".cm-product-save-buttons").hover().click();
         }
 
         //Переходим на витрину

@@ -2,7 +2,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import static com.codeborne.selenide.Selenide.*;
 
 /*
@@ -15,11 +16,11 @@ import static com.codeborne.selenide.Selenide.*;
 */
 
 public class TestRunner {
-    public static final String BASIC_URL = "https://trs.test.abt.team/4162mvru_video_gallery/admin.php";
+    public static final String BASIC_URL = "https://trs.test.abt.team/4171ultru/admin.php?dispatch=addons.manage";
 
     @BeforeClass
     public void openBrowser() {
-        Configuration.browser = "edge";
+        Configuration.browser = "chrome";
         Configuration.holdBrowserOpen = false; //не закрываем браузер пока ведём разработку
         Configuration.screenshots = true; //делаем скриншоты при падении
         Configuration.browserSize = "1920x1050"; //Увеличиваем размер экрана
