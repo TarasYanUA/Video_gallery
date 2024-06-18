@@ -23,7 +23,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
     navigateToStorefront(1); //Переходим на витрину
         Selenide.sleep(1000);
     screenshot("511 NoGallery, Vertical - Big picture,flat");
-    shiftToRTLLanguage();
+    shiftLanguage("ar");
         Selenide.sleep(1000);
     screenshot("512 NoGallery, Vertical - Big picture,flat (RTL)");
     }
@@ -34,7 +34,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         navigateToStorefront(2); //Переходим на витрину
         Selenide.sleep(1000);
         screenshot("521 NoGallery, Vertical - Big picture");
-        shiftToRTLLanguage();
+        shiftLanguage("ar");
         Selenide.sleep(1000);
         screenshot("522 NoGallery, Vertical - Big picture (RTL)");
     }
@@ -45,7 +45,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         navigateToStorefront(3); //Переходим на витрину
         Selenide.sleep(1000);
         screenshot("531 NoGallery, Vertical - Default");
-        shiftToRTLLanguage();
+        shiftLanguage("ar");
         Selenide.sleep(1000);
         screenshot("532 NoGallery, Vertical - Default (RTL)");
     }
@@ -56,7 +56,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
         navigateToStorefront(4); //Переходим на витрину
         Selenide.sleep(1000);
         screenshot("541 NoGallery, Vertical - Three columns");
-        shiftToRTLLanguage();
+        shiftLanguage("ar");
         Selenide.sleep(1000);
         screenshot("542 NoGallery, Vertical - Three columns (RTL)");
         navigateToCategoryPageAndQuickView();

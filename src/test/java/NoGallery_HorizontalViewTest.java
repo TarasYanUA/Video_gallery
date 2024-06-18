@@ -23,7 +23,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("411 NoGallery, Horizontal - Big picture,flat");
-        shiftToRTLLanguage();
+        shiftLanguage("ar");
         Selenide.sleep(1000);
         screenshot("412 NoGallery, Horizontal - Big picture,flat (RTL)");
     }
@@ -35,7 +35,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("421 NoGallery, Horizontal - Big picture");
-        shiftToRTLLanguage();
+        shiftLanguage("ar");
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("422 NoGallery, Horizontal - Big picture (RTL)");
@@ -48,7 +48,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("431 NoGallery, Horizontal - Default");
-        shiftToRTLLanguage();
+        shiftLanguage("ar");
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("432 NoGallery, Horizontal - Default (RTL)");
@@ -61,7 +61,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("441 NoGallery, Horizontal - Three columns");
-        shiftToRTLLanguage();
+        shiftLanguage("ar");
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("442 NoGallery, Horizontal - Three columns (RTL)");

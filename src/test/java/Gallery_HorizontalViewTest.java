@@ -24,7 +24,7 @@ public class Gallery_HorizontalViewTest extends TestRunner {
         navigateToStorefront(1); //Переходим на витрину
         Selenide.sleep(1000);
         screenshot("310 Gallery, Horizontal - Big picture,flat");
-        shiftToRTLLanguage();
+        shiftLanguage("ar");
         Selenide.sleep(1000);
         screenshot("312 Gallery, Horizontal - Big picture,flat (RTL)");
     }
@@ -36,7 +36,7 @@ public class Gallery_HorizontalViewTest extends TestRunner {
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
         screenshot("321 Gallery, Horizontal - Big picture");
-        shiftToRTLLanguage();
+        shiftLanguage("ar");
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
         screenshot("322 Gallery, Horizontal - Big picture (RTL)");
@@ -49,7 +49,7 @@ public class Gallery_HorizontalViewTest extends TestRunner {
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
         screenshot("331 Gallery, Horizontal - Default");
-        shiftToRTLLanguage();
+        shiftLanguage("ar");
         Selenide.sleep(1000);
         screenshot("332 Gallery, Horizontal - Default (RTL)");
     }
@@ -61,7 +61,7 @@ public class Gallery_HorizontalViewTest extends TestRunner {
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
         screenshot("341 Gallery, Horizontal - Three columns");
-        shiftToRTLLanguage();
+        shiftLanguage("ar");
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
         screenshot("342 Gallery, Horizontal - Three columns (RTL)");
