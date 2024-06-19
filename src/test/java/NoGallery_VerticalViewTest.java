@@ -20,7 +20,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
     //Работаем со страницей товара
     navigateToProductPage();
     selectBigPictureFlatTemplate();
-    navigateToStorefront(1); //Переходим на витрину
+    navigateTo_StorefrontProductPage(1); //Переходим на витрину
         Selenide.sleep(1000);
     screenshot("511 NoGallery, Vertical - Big picture,flat");
     shiftLanguage("ar");
@@ -31,7 +31,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
     public void checkNoGallery_VerticalView_BigPicture() {
         switchTo().window(0);
         selectBigPictureTemplate();
-        navigateToStorefront(2); //Переходим на витрину
+        navigateTo_StorefrontProductPage(2); //Переходим на витрину
         Selenide.sleep(1000);
         screenshot("521 NoGallery, Vertical - Big picture");
         shiftLanguage("ar");
@@ -42,7 +42,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
     public void checkNoGallery_VerticalView_Default() {
         switchTo().window(0);
         selectDefaultTemplate();
-        navigateToStorefront(3); //Переходим на витрину
+        navigateTo_StorefrontProductPage(3); //Переходим на витрину
         Selenide.sleep(1000);
         screenshot("531 NoGallery, Vertical - Default");
         shiftLanguage("ar");
@@ -53,7 +53,7 @@ public class NoGallery_VerticalViewTest extends TestRunner{
     public void checkNoGallery_VerticalView_ThreeColumn() {
         switchTo().window(0);
         selectThreeColumnTemplate();
-        navigateToStorefront(4); //Переходим на витрину
+        navigateTo_StorefrontProductPage(4); //Переходим на витрину
         Selenide.sleep(1000);
         screenshot("541 NoGallery, Vertical - Three columns");
         shiftLanguage("ar");

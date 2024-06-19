@@ -2,9 +2,12 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
-import org.openqa.selenium.By;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.*;
 
 /*
@@ -17,7 +20,7 @@ import static com.codeborne.selenide.Selenide.*;
 */
 
 public class TestRunner {
-    public static final String BASIC_URL = "https://trs.test.abt.team/4171ultru/admin.php?dispatch=addons.manage";
+    public static final String BASIC_URL = "https://trs.test.abt.team/4181ultru/admin.php?dispatch=addons.manage";
 
     @BeforeClass
     public void openBrowser() {
@@ -35,15 +38,17 @@ public class TestRunner {
         Selenide.closeWebDriver();
     }
 
-    public void navigateToStorefront(int tabNumber){
-        $(By.linkText("Сохранить")).click();
-        $(".btn-bar.btn-toolbar.nav__actions-bar.dropleft").$(".cs-icon.dropdown-icon").click();
-        $(By.linkText("Предпросмотр")).click();
-        switchTo().window(tabNumber);
-        if($(".cm-btn-success").exists()){
+
+    public void navigateTo_StorefrontProductPage(int tabNum) {
+        $(".dropdown-icon--tools").click();
+        $x("//ul[@class='dropdown-menu']//a[contains(text(), 'Предпросмотр')]").click();
+        List<String> tabs = new ArrayList<>(Selenide.webdriver().object().getWindowHandles());
+        Selenide.switchTo().window(tabs.get(tabNum));
+        if ($(".cm-btn-success").exists()) {
             $(".cm-btn-success").click();
         }
     }
+
     public void navigateToProductPage(){
         $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
         $x("//span[text()='Товары']").click();

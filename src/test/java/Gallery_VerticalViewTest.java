@@ -9,7 +9,7 @@ public class Gallery_VerticalViewTest extends TestRunner{
         //Работаем со страницей товара
         navigateToProductPage();
         selectBigPictureFlatTemplate();
-        navigateToStorefront(1); //Переходим на витрину
+        navigateTo_StorefrontProductPage(1); //Переходим на витрину
         Selenide.sleep(1000);
         screenshot("211 Gallery, Vertical - Big picture,flat");
         shiftLanguage("ar");
@@ -20,7 +20,7 @@ public class Gallery_VerticalViewTest extends TestRunner{
     public void checkGallery_VerticalView_BigPicture() {
         switchTo().window(0);
         selectBigPictureTemplate();
-        navigateToStorefront(2); //Переходим на витрину
+        navigateTo_StorefrontProductPage(2); //Переходим на витрину
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
         screenshot("221 Gallery, Vertical - Big picture");
@@ -33,7 +33,7 @@ public class Gallery_VerticalViewTest extends TestRunner{
     public void checkGallery_VerticalView_Default() {
         switchTo().window(0);
         selectDefaultTemplate();
-        navigateToStorefront(3); //Переходим на витрину
+        navigateTo_StorefrontProductPage(3); //Переходим на витрину
         Selenide.sleep(1000);
         screenshot("231 Gallery, Vertical - Default");
         shiftLanguage("ar");
@@ -44,7 +44,7 @@ public class Gallery_VerticalViewTest extends TestRunner{
     public void checkGallery_VerticalView_ThreeColumn() {
         switchTo().window(0);
         selectThreeColumnTemplate();
-        navigateToStorefront(4); //Переходим на витрину
+        navigateTo_StorefrontProductPage(4); //Переходим на витрину
         Selenide.sleep(1000);
         screenshot("241 Gallery, Vertical - Three columns");
         shiftLanguage("ar");

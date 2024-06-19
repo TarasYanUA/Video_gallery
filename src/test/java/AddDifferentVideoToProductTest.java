@@ -1,23 +1,24 @@
-import com.codeborne.selenide.Condition;
+import adminPanel.CsCartSettings;
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.screenshot;
 
-public class AddDifferentVideoToProductTest extends TestRunner{
+public class AddDifferentVideoToProductTest extends TestRunner {
     @Test
-    public void VerifyAddingDifferentVideosToProduct(){
+    public void verifyAddingDifferentVideosToProduct() {
         //Переходим на страницу редактирования товара
-        $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
-        $x("//span[text()='Товары']").click();
-        if($(".cm-notification-close").exists()){
-        $(".cm-notification-close").click();    }
-        $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'adizero Rush Shoes')]").click();
-        $("#ab__video_gallery").click();
+        CsCartSettings csCartSettings = new CsCartSettings();
+        csCartSettings.navigateTo_ProductPage();
+        if ($(".cm-notification-close").exists())
+            $(".cm-notification-close").click();
+        csCartSettings.selectProductFromList("adizero Rush Shoes");
+        csCartSettings.tab_VideoGallery.click();
 
-        if($$("tr[id*='ab__vg_video_extra']").size() == 1) {
+        if ($$("tr[id*='ab__vg_video_extra']").size() == 1) {
             //Добавляем видео с YouTube
             $x("//input[@name='product_data[ab__vg_videos][1][pos]']").click();
             $x("//input[@name='product_data[ab__vg_videos][1][pos]']").setValue("10");
@@ -62,17 +63,18 @@ public class AddDifferentVideoToProductTest extends TestRunner{
         }
 
         //Переходим на витрину
-        navigateToStorefront(1);
+        navigateTo_StorefrontProductPage(1);
         //Проверяем, что вкладка "Видео галерея" присутствует на странице товара
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue($$("#ab__video_gallery").size() >= 1,
+        softAssert.assertTrue(!$$("#ab__video_gallery").isEmpty(),
                 "There is no tab 'Video gallery' on the product page!");
-        $("#ab__video_gallery").shouldBe(Condition.exist).click();
         //Проверяем, что во вкладке ровно 4 видео
+        $("#ab__video_gallery").click();
         softAssert.assertTrue($$(".ab__vg-video").size() == 4,
                 "There is no 4 videos on the tab 'Video gallery' on the product page!");
         Selenide.sleep(1500);
         screenshot("101 Videos are added on the product page");
         softAssert.assertAll();
+        System.out.println("AddDifferentVideoToProductTest has passed successfully!");
     }
 }

@@ -19,7 +19,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         //Работаем со страницей товара
         navigateToProductPage();
         selectBigPictureFlatTemplate();
-        navigateToStorefront(1); //Переходим на витрину
+        navigateTo_StorefrontProductPage(1); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("411 NoGallery, Horizontal - Big picture,flat");
@@ -31,7 +31,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
     public void checkNoGallery_HorizontalView_BigPicture() {
         switchTo().window(0);
         selectBigPictureTemplate();
-        navigateToStorefront(2); //Переходим на витрину
+        navigateTo_StorefrontProductPage(2); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("421 NoGallery, Horizontal - Big picture");
@@ -44,7 +44,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
     public void checkNoGallery_HorizontalView_Default() {
         switchTo().window(0);
         selectDefaultTemplate();
-        navigateToStorefront(3); //Переходим на витрину
+        navigateTo_StorefrontProductPage(3); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("431 NoGallery, Horizontal - Default");
@@ -57,7 +57,7 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
     public void checkNoGallery_HorizontalView_ThreeColumn() {
         switchTo().window(0);
         selectThreeColumnTemplate();
-        navigateToStorefront(4); //Переходим на витрину
+        navigateTo_StorefrontProductPage(4); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("441 NoGallery, Horizontal - Three columns");
