@@ -68,7 +68,7 @@ public class CsCartSettings implements CheckMenuToBeActive {
 
     //Меню "Настройки -- Общие настройки -- Внешний вид"
     private final SelenideElement menu_Settings = $("#administration");
-    private final SelenideElement section_Appearance = $("a[href$='section_id=Appearance']");
+    private final SelenideElement section_Appearance = $("a[href*='section_id=Appearance']");
     private final SelenideElement section_GeneralSettings = $("a[href$='section_id=General']");
     public SelenideElement setting_displayProductDetailsInTabs = $("#field___product_details_in_tab_288");
     public SelenideElement setting_quickView = $("#field___enable_quick_view_290");
