@@ -19,9 +19,8 @@ public class Gallery_VerticalViewTest extends TestRunner {
     CsCartSettings csCartSettings = new CsCartSettings();
 
     @Test(priority = 10)
-    public void setConfigurations(){
+    public void setConfigurationsFor_Gallery_VerticalView(){
         //Устанавливаем CS-Cart настройки
-        CsCartSettings csCartSettings = new CsCartSettings();
         csCartSettings.navigateTo_AppearanceSettings();
         if(!csCartSettings.setting_displayImagesAsGallery.isSelected()){
             csCartSettings.setting_displayImagesAsGallery.click();
@@ -42,9 +41,8 @@ public class Gallery_VerticalViewTest extends TestRunner {
         }
     }
 
-    @Test(priority = 20)
-    public void checkGallery_VerticalView_BigPictureFlat() {
-        CsCartSettings csCartSettings = new CsCartSettings();
+    @Test(priority = 20, dependsOnMethods = "setConfigurationsFor_Gallery_VerticalView")
+    public void checkGallery_VerticalView() {
         //Работаем со страницей товара
         csCartSettings.navigateTo_ProductPage("adizero Rush Shoes");
         csCartSettings.productTemplate.selectOptionByValue("abt__ut2_bigpicture_flat_template");
@@ -54,10 +52,7 @@ public class Gallery_VerticalViewTest extends TestRunner {
         shiftLanguage("ar");
         Selenide.sleep(1000);
         screenshot("212 Gallery, Vertical - Big picture,flat (RTL)");
-    }
 
-    @Test(priority = 30)
-    public void checkGallery_VerticalView_BigPicture() {
         switchTo().window(0);
         csCartSettings.productTemplate.selectOptionByValue("bigpicture_template");
         csCartSettings.navigateTo_StorefrontProductPage(2); //Переходим на витрину
@@ -68,10 +63,7 @@ public class Gallery_VerticalViewTest extends TestRunner {
         $(".ut2-pb__title").shouldBe(Condition.enabled).scrollTo();
         Selenide.sleep(1000);
         screenshot("222 Gallery, Vertical - Big picture (RTL)");
-    }
 
-    @Test(priority = 40)
-    public void checkGallery_VerticalView_Default() {
         switchTo().window(0);
         csCartSettings.productTemplate.selectOptionByValue("default_template");
         csCartSettings.navigateTo_StorefrontProductPage(3); //Переходим на витрину
@@ -80,10 +72,7 @@ public class Gallery_VerticalViewTest extends TestRunner {
         shiftLanguage("ar");
         Selenide.sleep(1000);
         screenshot("232 Gallery, Vertical - Default (RTL)");
-    }
 
-    @Test(priority = 50)
-    public void checkGallery_VerticalView_ThreeColumn() {
         switchTo().window(0);
         csCartSettings.productTemplate.selectOptionByValue("abt__ut2_three_columns_template");
         csCartSettings.navigateTo_StorefrontProductPage(4); //Переходим на витрину
@@ -92,10 +81,7 @@ public class Gallery_VerticalViewTest extends TestRunner {
         shiftLanguage("ar");
         Selenide.sleep(1000);
         screenshot("242 Gallery, Vertical - Three columns (RTL)");
-    }
 
-    @Test(priority = 60)
-    public void checkGallery_VerticalView_CascadeGallery() {
         switchTo().window(0);
         csCartSettings.productTemplate.selectOptionByValue("abt__ut2_cascade_gallery_template");
         csCartSettings.navigateTo_StorefrontProductPage(5); //Переходим на витрину

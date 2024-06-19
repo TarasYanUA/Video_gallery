@@ -43,6 +43,7 @@ public class TestRunner {
         $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
         Selenide.sleep(1000);
     }
+
     public void shiftLanguage(String arRuEn) {
         $("a[id*='sw_select'][id*='wrap_language']").scrollTo().click();
         $("a[data-ca-name='" + arRuEn + "']").click();

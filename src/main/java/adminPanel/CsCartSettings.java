@@ -51,15 +51,6 @@ public class CsCartSettings implements CheckMenuToBeActive {
     private final SelenideElement gearwheelOfVideoGallery = $("tr#addon_ab__video_gallery button.btn.dropdown-toggle");
     private final SelenideElement sectionOfVideoGallery_GeneralSettings = $(".dropdown-menu a[href$='addon=ab__video_gallery&selected_section=settings']");
     private final SelenideElement tab_Settings = $("#settings");
-    public SelenideElement field_SearchOnTop = $(".cm-autocomplete-off.search__input");
-
-
-    //Меню "Настройки -- Общие настройки -- Внешний вид"
-    private final SelenideElement menu_Settings = $("#administration");
-    private final SelenideElement section_Appearance = $("a[href$='section_id=Appearance']");
-    private final SelenideElement section_GeneralSettings = $("a[href$='section_id=General']");
-    public SelenideElement setting_QuickView = $x("//input[contains(@id, 'field___enable_quick_view_')]");
-    public SelenideElement category_Notebooks = $(".table-wrapper a[href$='category_id=169']");
 
     private void navigateTo_DownloadedAddonsPage() {
         checkMenuToBeActive("dispatch=addons.manage", menu_Addons);
@@ -76,6 +67,9 @@ public class CsCartSettings implements CheckMenuToBeActive {
 
 
     //Меню "Настройки -- Общие настройки -- Внешний вид"
+    private final SelenideElement menu_Settings = $("#administration");
+    private final SelenideElement section_Appearance = $("a[href$='section_id=Appearance']");
+    private final SelenideElement section_GeneralSettings = $("a[href$='section_id=General']");
     public SelenideElement setting_displayProductDetailsInTabs = $("#field___product_details_in_tab_288");
     public SelenideElement setting_quickView = $("#field___enable_quick_view_290");
     public SelenideElement setting_displayImagesAsGallery = $("#field___thumbnails_gallery_147");
@@ -85,6 +79,4 @@ public class CsCartSettings implements CheckMenuToBeActive {
         section_GeneralSettings.click();
         section_Appearance.click();
     }
-
-
 }
