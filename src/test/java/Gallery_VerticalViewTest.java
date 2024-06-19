@@ -1,4 +1,5 @@
 import adminPanel.CsCartSettings;
+import adminPanel.SetCsCartSettings_asGallery;
 import adminPanel.VideoGallerySettings;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
@@ -15,23 +16,12 @@ import static com.codeborne.selenide.Selenide.*;
 * Включить вертикальное отображение --  да
 */
 
-public class Gallery_VerticalViewTest extends TestRunner {
+public class Gallery_VerticalViewTest extends TestRunner implements SetCsCartSettings_asGallery {
     CsCartSettings csCartSettings = new CsCartSettings();
 
     @Test(priority = 10)
-    public void setConfigurationsFor_Gallery_VerticalView(){
-        //Устанавливаем CS-Cart настройки
-        csCartSettings.navigateTo_AppearanceSettings();
-        if(!csCartSettings.setting_displayImagesAsGallery.isSelected()){
-            csCartSettings.setting_displayImagesAsGallery.click();
-        }
-        if(!csCartSettings.setting_displayProductDetailsInTabs.isSelected()){
-            csCartSettings.setting_displayProductDetailsInTabs.click();
-        }
-        if (!csCartSettings.setting_quickView.isSelected()){
-            csCartSettings.setting_quickView.click();
-        }
-        csCartSettings.button_SaveSettings.click();
+    public void setConfigurationsFor_Gallery_VerticalView() {
+        setCsCartSettings_asGallery();
 
         //Устанавливаем настройки модуля
         VideoGallerySettings videoGallerySettings = csCartSettings.navigateTo_VideoGallerySettings();
@@ -92,5 +82,7 @@ public class Gallery_VerticalViewTest extends TestRunner {
         screenshot("252 Gallery, Vertical - Cascade gallery (RTL)");
         navigateToCategoryPageAndQuickView();
         screenshot("261 Gallery, Vertical - QuickView (RTL)");
+
+        System.out.println("Gallery_VerticalViewTest has passed successfully!");
     }
 }
