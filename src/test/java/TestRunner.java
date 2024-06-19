@@ -5,9 +5,6 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static com.codeborne.selenide.Selenide.*;
 
 /*
@@ -39,44 +36,12 @@ public class TestRunner {
     }
 
 
-    public void navigateTo_StorefrontProductPage(int tabNum) {
-        $(".dropdown-icon--tools").click();
-        $x("//ul[@class='dropdown-menu']//a[contains(text(), 'Предпросмотр')]").click();
-        List<String> tabs = new ArrayList<>(Selenide.webdriver().object().getWindowHandles());
-        Selenide.switchTo().window(tabs.get(tabNum));
-        if ($(".cm-btn-success").exists()) {
-            $(".cm-btn-success").click();
-        }
-    }
-
-    public void navigateToProductPage(){
-        $x("//li[@class='dropdown nav__header-main-menu-item ']//a[@href='#products']").hover();
-        $x("//span[text()='Товары']").click();
-        //$(".cm-notification-close").click();
-        $x("//td[@class='product-name-column wrap-word']//a[contains(text(), 'adizero Rush Shoes')]").click();
-    }
     public void navigateToCategoryPageAndQuickView(){
         $(".ty-text-links-wrapper").scrollTo();
         $x("//a[@class='ty-breadcrumbs__a']//bdi[text()='Apparel']").click();
         $x("//a[@data-ca-view-id='78'][@data-ca-target-id='product_quick_view']").hover().click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
         Selenide.sleep(1000);
-    }
-    public void selectBigPictureFlatTemplate() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='abt__ut2_bigpicture_flat_template']").click();
-    }
-    public void selectBigPictureTemplate() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='bigpicture_template']").click();
-    }
-    public void selectDefaultTemplate() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='default_template']").click();
-    }
-    public void selectThreeColumnTemplate() {
-        $("#elm_details_layout").click();
-        $x("//option[@value='abt__ut2_three_columns_template']").click();
     }
     public void shiftLanguage(String arRuEn) {
         $("a[id*='sw_select'][id*='wrap_language']").scrollTo().click();

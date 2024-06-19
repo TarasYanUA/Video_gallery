@@ -1,3 +1,4 @@
+import adminPanel.CsCartSettings;
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -5,7 +6,9 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.switchTo;
 
-public class NoGallery_HorizontalViewTest extends TestRunner{
+public class NoGallery_HorizontalViewTest extends TestRunner {
+    CsCartSettings csCartSettings = new CsCartSettings();
+
     @Test(priority = 1)
     public void checkNoGallery_HorizontalView_BigPictureFlat() {
         //Включаем вид мини-иконок без галереи
@@ -17,9 +20,9 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
             $(By.linkText("Сохранить")).click();
         }
         //Работаем со страницей товара
-        navigateToProductPage();
+        csCartSettings.navigateTo_ProductPage("adizero Rush Shoes");
         selectBigPictureFlatTemplate();
-        navigateTo_StorefrontProductPage(1); //Переходим на витрину
+        csCartSettings.navigateTo_StorefrontProductPage(1); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("411 NoGallery, Horizontal - Big picture,flat");
@@ -27,11 +30,12 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         Selenide.sleep(1000);
         screenshot("412 NoGallery, Horizontal - Big picture,flat (RTL)");
     }
+
     @Test(priority = 2)
     public void checkNoGallery_HorizontalView_BigPicture() {
         switchTo().window(0);
         selectBigPictureTemplate();
-        navigateTo_StorefrontProductPage(2); //Переходим на витрину
+        csCartSettings.navigateTo_StorefrontProductPage(2); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("421 NoGallery, Horizontal - Big picture");
@@ -40,11 +44,12 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         Selenide.sleep(1000);
         screenshot("422 NoGallery, Horizontal - Big picture (RTL)");
     }
+
     @Test(priority = 3)
     public void checkNoGallery_HorizontalView_Default() {
         switchTo().window(0);
         selectDefaultTemplate();
-        navigateTo_StorefrontProductPage(3); //Переходим на витрину
+        csCartSettings.navigateTo_StorefrontProductPage(3); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("431 NoGallery, Horizontal - Default");
@@ -53,11 +58,12 @@ public class NoGallery_HorizontalViewTest extends TestRunner{
         Selenide.sleep(1000);
         screenshot("432 NoGallery, Horizontal - Default (RTL)");
     }
+
     @Test(priority = 4)
     public void checkNoGallery_HorizontalView_ThreeColumn() {
         switchTo().window(0);
         selectThreeColumnTemplate();
-        navigateTo_StorefrontProductPage(4); //Переходим на витрину
+        csCartSettings.navigateTo_StorefrontProductPage(4); //Переходим на витрину
         $(".ty-menu__items.cm-responsive-menu").scrollTo();
         Selenide.sleep(1000);
         screenshot("441 NoGallery, Horizontal - Three columns");

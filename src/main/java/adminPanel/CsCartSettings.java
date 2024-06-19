@@ -2,8 +2,8 @@ package adminPanel;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.By;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,25 +14,34 @@ public class CsCartSettings implements CheckMenuToBeActive {
         super();
     }
 
-
-    public SelenideElement button_Save = $(".btn.btn-primary.cm-submit");
-    public SelenideElement popupWindow = $(".ui-dialog-title");
-    public SelenideElement gearWheelOnTop = $(".nav__actions-bar .dropdown-icon--tools");
-    public SelenideElement button_Preview = $x("//a[contains(text(), 'Предпросмотр')]");
+    public SelenideElement button_SaveSettings = $(".nav__actions-bar .cm-submit");
+    public SelenideElement button_SaveProduct = $(".cm-product-save-buttons");
 
 
     //Меню "Товары"
     private final SelenideElement menu_Products = $("a[href$='dispatch=products.manage'].main-menu-1__link");
     private final SelenideElement section_Products = $(By.id("products_products"));
     public SelenideElement tab_VideoGallery = $(By.id("ab__video_gallery"));
+    public SelenideElement productTemplate = $(By.id("elm_details_layout"));
+    private final SelenideElement gearWheelOnTop = $(".dropdown-icon--tools");
+    public SelenideElement button_Preview = $x("//a[contains(text(), 'Предпросмотр')]");
 
-    public void navigateTo_ProductPage() {
+    public void navigateTo_ProductPage(String productName) {
         checkMenuToBeActive("dispatch=products.manage", menu_Products);
         section_Products.click();
+        $x("//td[@class='product-name-column wrap-word']//a[contains(text(), '" + productName + "')]").click();
     }
 
-    public void selectProductFromList(String productName) {
-        $x("//td[@class='product-name-column wrap-word']//a[contains(text(), '" + productName + "')]").click();
+    public void navigateTo_StorefrontProductPage(int tabNum) {
+        button_SaveProduct.click();
+        Selenide.sleep(1500);
+        gearWheelOnTop.click();
+        button_Preview.click();
+        List<String> tabs = new ArrayList<>(Selenide.webdriver().object().getWindowHandles());
+        Selenide.switchTo().window(tabs.get(tabNum));
+        if ($(".cm-btn-success").exists()) {
+            $(".cm-btn-success").click();
+        }
     }
 
 
@@ -40,11 +49,12 @@ public class CsCartSettings implements CheckMenuToBeActive {
     private final SelenideElement menu_Addons = $("a[href$='dispatch=addons.manage'].main-menu-1__link");
     private final SelenideElement section_DownloadedAddons = $("#addons_downloaded_add_ons");
     private final SelenideElement gearwheelOfVideoGallery = $("tr#addon_ab__video_gallery button.btn.dropdown-toggle");
-    private final SelenideElement sectionOfVideoGallery_GeneralSettings = $("a[href$='addon=ab__video_gallery&selected_section=settings']");
+    private final SelenideElement sectionOfVideoGallery_GeneralSettings = $(".dropdown-menu a[href$='addon=ab__video_gallery&selected_section=settings']");
     private final SelenideElement tab_Settings = $("#settings");
     public SelenideElement field_SearchOnTop = $(".cm-autocomplete-off.search__input");
-    public SelenideElement productTemplate = $("#elm_details_layout");
 
+
+    //Меню "Настройки -- Общие настройки -- Внешний вид"
     private final SelenideElement menu_Settings = $("#administration");
     private final SelenideElement section_Appearance = $("a[href$='section_id=Appearance']");
     private final SelenideElement section_GeneralSettings = $("a[href$='section_id=General']");

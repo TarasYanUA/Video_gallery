@@ -12,10 +12,7 @@ public class AddDifferentVideoToProductTest extends TestRunner {
     public void verifyAddingDifferentVideosToProduct() {
         //Переходим на страницу редактирования товара
         CsCartSettings csCartSettings = new CsCartSettings();
-        csCartSettings.navigateTo_ProductPage();
-        if ($(".cm-notification-close").exists())
-            $(".cm-notification-close").click();
-        csCartSettings.selectProductFromList("adizero Rush Shoes");
+        csCartSettings.navigateTo_ProductPage("adizero Rush Shoes");
         csCartSettings.tab_VideoGallery.click();
 
         if ($$("tr[id*='ab__vg_video_extra']").size() == 1) {
@@ -59,11 +56,10 @@ public class AddDifferentVideoToProductTest extends TestRunner {
             $(By.name("product_data[ab__vg_videos][7][type]")).selectOption("Ресурс");
             $("#ab__vg__video_path__1_1_2_3").click();
             $("#ab__vg__video_path__1_1_2_3").setValue("https://unitheme.net/images/ut2_banner_videos/33_52_ABSTRACT.mp4");
-            $(".cm-product-save-buttons").hover().click();
         }
 
         //Переходим на витрину
-        navigateTo_StorefrontProductPage(1);
+        csCartSettings.navigateTo_StorefrontProductPage(1);
         //Проверяем, что вкладка "Видео галерея" присутствует на странице товара
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(!$$("#ab__video_gallery").isEmpty(),
