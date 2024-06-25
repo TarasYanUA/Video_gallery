@@ -18,4 +18,12 @@ public class VideoGallerySettings {
             button_SaveSettings.click();
         }
     }
+
+    @And("Настройки модуля: Включить горизонтальное отображение")
+    public void enableHorizontalView() {
+        if(setting_EnableVerticalOutput.isSelected()) {
+            setting_EnableVerticalOutput.click();
+            button_SaveSettings.click();
+        }
+    }
 }

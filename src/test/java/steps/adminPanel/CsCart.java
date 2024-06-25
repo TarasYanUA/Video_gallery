@@ -99,8 +99,18 @@ public class CsCart implements CheckMenuToBeActive {
         button_SaveSettings.click();
     }
 
-    @And("Возвращаемся на страницу редактирования товара")
-    public void switchToProductWindow() {
-        switchTo().window(0);
+    @And("CS-Cart настройки: Показывать мини-иконки БЕЗ галереи, Показывать информацию о товаре Без вкладок, Включить быстрый просмотр")
+    public void setCsCartSettings_NoGallery() {
+        navigateTo_AppearanceSettings();
+        if (setting_displayImagesAsGallery.isSelected()) {
+            setting_displayImagesAsGallery.click();
+        }
+        if (setting_displayProductDetailsInTabs.isSelected()) {
+            setting_displayProductDetailsInTabs.click();
+        }
+        if (!setting_quickView.isSelected()) {
+            setting_quickView.click();
+        }
+        button_SaveSettings.click();
     }
 }
