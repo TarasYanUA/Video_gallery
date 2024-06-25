@@ -23,4 +23,4 @@
 * TestNG;
 * Cucumber;
 * Cucumber JSON Report;
-* Файл логирования для SLF4J (библиотека logback-classic и его сопутствующий файл main -- logback.xml), чтобы отключить лишние логи.
+* Файл логирования для SLF4J (библиотека logback-classic и его сопутствующий файл test -- resources -- logback.xml), чтобы отключить лишние логи.
