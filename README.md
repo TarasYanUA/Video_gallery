@@ -1,9 +1,16 @@
 Модуль "Видео галерея" v3.6.0 + тема Юни2(Ult+MV+Ru) v4.18.1b. Лучше установить весь пакет темы Юни2.
 
 Запустить тесты можно:
-1) Через файл CucumberTestNG.xml и/или CucumberTestRunner
+1) Через файл CucumberTestNG.xml и/или CucumberTestRunner (путь к файлу: src -- test -- java)
 2) Через Surefire отчёт: перейти в "Терминал" и ввести "mvn clean test". После этого в папке "target -> surefire reports"
    открыть файл "index.html" с помощью браузера (правая кнопка мыши -> Open in -> Browser).
+
+
+**Cucumber JSON Report отчёт**:
+- найти файл "target -- cucumber_target.html",
+- на файле нажать правую кнопку мыши,
+- выбрать "Open in -- Browser -- Chrome".
+
 
 **Условия для работоспособности авто-тестов:**
 1) Следить за актуальностью библиотек (файл pom.xml);
@@ -16,11 +23,4 @@
 * TestNG;
 * Cucumber;
 * Cucumber JSON Report;
-* Файл логирования для SLF4J, чтобы отключить лишние логи.
-
-**Проект запускается** через файл **CucumberRunnerTest**, путь к файлу: src -- test -- java
-
-**Cucumber JSON Report отчёт**:
-- найти файл "target -- cucumber_target.html",
-- на файле нажать правую кнопку мыши,
-- выбрать "Open in -- Browser -- Chrome". 
+* Файл логирования для SLF4J (библиотека logback-classic и его сопутствующий файл main -- logback.xml), чтобы отключить лишние логи.
