@@ -1,8 +1,9 @@
 Модуль "Видео галерея" v3.6.0 + тема Юни2(Ult+MV+Ru) v4.18.1b. Лучше установить весь пакет темы Юни2.
 
 Запустить тесты можно:
-1) Через файл CucumberTestNG.xml и/или CucumberTestRunner (путь к файлу: src -- test -- java)
-2) Через Surefire отчёт: перейти в "Терминал" и ввести "mvn clean test". После этого в папке "target -> surefire reports"
+1) Через файл CucumberTestNG.xml
+2) Через файл CucumberTestRunner (путь к файлу: src -- test -- java)
+3) Через Surefire отчёт: перейти в "Терминал" и ввести "mvn clean test". После этого в папке "target -> surefire reports"
    открыть файл "index.html" с помощью браузера (правая кнопка мыши -> Open in -> Browser).
 
 
