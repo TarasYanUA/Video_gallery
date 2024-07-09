@@ -7,7 +7,7 @@ import io.cucumber.java.Before;
 import static com.codeborne.selenide.Selenide.*;
 
 public class DriverHooks {
-    public static final String BASIC_URL = "https://trs.test.abt.team/4181ultru/admin.php?dispatch=addons.manage";
+    public static final String BASIC_URL = "https://abd-71f3d6cd3a.demos.abt.team/admin.php?dispatch=products.manage";
 
     public DriverHooks() {super();}
 

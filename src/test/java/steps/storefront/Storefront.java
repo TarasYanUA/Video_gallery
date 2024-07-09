@@ -25,6 +25,7 @@ public class Storefront {
         softAssert.assertTrue($$(".ab__vg-video").size() == 4,
                 "There is no 4 videos on the tab 'Video gallery' on the product page!");
         softAssert.assertAll();
+        takeScreenshot("@10 Четыре видео во вкладке товара");
     }
 
     @And("Переключаем на RTL язык")
