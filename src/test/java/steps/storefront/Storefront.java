@@ -38,7 +38,7 @@ public class Storefront {
     @And("Переходим на страницу категории и открываем окно быстрого просмотра")
     public void navigateToCategoryPage_OpenQuickView() {
         $(".ty-text-links-wrapper").scrollTo();
-        $x("//a[@class='ty-breadcrumbs__a']//bdi[text()='Обувь']").click();
+        $("a:nth-child(3).ty-breadcrumbs__a bdi").click();
         $x("//a[@data-ca-view-id='78'][@data-ca-target-id='product_quick_view']").hover().click();
         $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
         Selenide.sleep(1000);
