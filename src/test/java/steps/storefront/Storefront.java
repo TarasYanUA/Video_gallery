@@ -16,14 +16,15 @@ public class Storefront {
         screenshot(name);
     }
 
-    @Then("Выполняем проверку добавленных видео")
-    public void checkAsserts() {
+    @And("Проверяем, что во вкладке товара ровно {int} видео")
+    public void assertProductTab_4Videos(int videoQuantity) {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(!$$("#ab__video_gallery").isEmpty(),
                 "There is no tab 'Video gallery' on the product page!");
-        //Проверяем, что во вкладке ровно 4 видео
         $("#ab__video_gallery").click();
-        softAssert.assertEquals($$(".ab__vg-video").size(), 4,
+        $("#ab__video_gallery").scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}");
+        //Проверяем, что во вкладке ровно 4 видео
+        softAssert.assertEquals($$(".ab__vg-video").size(), videoQuantity,
                 "There is no 4 videos on the tab 'Video gallery' on the product page!");
         softAssert.assertAll();
         takeScreenshot("@10 Четыре видео во вкладке товара");
