@@ -3,6 +3,7 @@ package steps.storefront;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import hooks.DriverHooks;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
@@ -12,6 +13,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Storefront {
     public Storefront() {super();}
+
+    String productName = DriverHooks.PRODUCT_NAME;
 
     SelenideElement tab_VideoGallery = $(By.id("ab__video_gallery"));
     SelenideElement miniIconOfYoutubeVideo = $("a.ty-product-thumbnails__item img[alt='Музыка, успокаивает нервную систему и радует душу']");
@@ -43,8 +46,8 @@ public class Storefront {
         $("a[data-ca-name='ar']").click();
     }
 
-    @And("Переходим на страницу категории и открываем окно быстрого просмотра товара {string}")
-    public void navigateToCategoryPage_OpenQuickView(String productName) {
+    @And("Переходим на страницу категории и открываем окно быстрого просмотра товара")
+    public void navigateToCategoryPage_OpenQuickView() {
         $(".ty-text-links-wrapper").scrollTo();
         $("a:nth-child(3).ty-breadcrumbs__a bdi").click();
         $x("//a[@class='product-title'][contains(@title, '" + productName + "')]/../../..//a[contains(@class, 'ut2-quick-view-button')]").hover().click();
@@ -74,11 +77,16 @@ public class Storefront {
                 "There is a video with autoplay in the product tab but shouldn't!");
     }
 
-    @And("Закрываем окно быстрого просмотра")
+    @And("Закрываем окно быстрого просмотра для товара")
     public void closeQuickView() {
         $(".ui-icon-closethick").scrollTo().click();
         $(".ui-icon-closethick").shouldBe(Condition.disappear);
-        $(".ut2-icon-products-multicolumns").hover();
+        SelenideElement productOnCategoryPage = $x("//a[@class='product-title'][contains(@title, '" + productName + "')]/../../..");
+        // Прокручиваем к элементу и выделяем его
+        executeJavaScript(
+                "arguments[0].scrollIntoView({behavior: 'instant', block: 'center', inline: 'center'});" +
+                        "arguments[0].style.border='3px solid #ccffcc';",
+                productOnCategoryPage);
     }
 
     @And("Проверяем, что видео НЕ автовоспроизводится на странице категории")

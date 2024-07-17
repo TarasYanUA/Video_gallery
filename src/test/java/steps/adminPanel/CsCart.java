@@ -1,5 +1,7 @@
 package steps.adminPanel;
 
+import hooks.DriverHooks;
+
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
@@ -17,6 +19,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class CsCart implements CheckMenuToBeActive {
     public CsCart() {super();}
 
+    String productName = DriverHooks.PRODUCT_NAME;
+
     SelenideElement button_SaveSettings = $(".nav__actions-bar .cm-submit");
     SelenideElement button_SaveProduct = $(".cm-product-save-buttons");
 
@@ -29,11 +33,11 @@ public class CsCart implements CheckMenuToBeActive {
     SelenideElement productTemplate = $(By.id("elm_details_layout"));
     SelenideElement gearWheelOnTop = $(".dropdown-icon--tools");
     SelenideElement button_Preview = $x("//a[contains(text(), 'Предпросмотр')]");
-    SelenideElement setting_Autoplay = $(By.id("ab__vg__autoplay__0"));
-    SelenideElement setting_ShowInProductLists = $(By.id("ab__vg__show_in_list__0"));
+    SelenideElement setting_Autoplay = $("input#ab__vg__autoplay__0");
+    SelenideElement setting_ShowInProductLists = $("input#ab__vg__show_in_list__0");
 
-    @When("Переходим на страницу редактирования товара {string}")
-    public void navigateTo_ProductPage(String productName) {
+    @When("Переходим на страницу редактирования товара")
+    public void navigateTo_ProductPage() {
         checkMenuToBeActive("dispatch=products.manage", menu_Products);
         section_Products.click();
         //$x("//td[@class='product-name-column wrap-word']//a[contains(text(), '" + productName + "')]").click();
