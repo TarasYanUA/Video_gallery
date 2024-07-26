@@ -50,7 +50,10 @@ public class Storefront {
     public void navigateToCategoryPage_OpenQuickView() {
         $(".ty-text-links-wrapper").scrollTo();
         $("a:nth-child(3).ty-breadcrumbs__a bdi").click();
-        $x("//a[@class='product-title'][contains(@title, '" + productName + "')]/../../..//a[contains(@class, 'ut2-quick-view-button')]").hover().click();
+        String productTitleXPath = "//a[@class='product-title'][contains(@title, '" + productName + "')]/../../..//a[contains(@class, 'ut2-quick-view-button')]";
+        SelenideElement productQuickView = $x(productTitleXPath);
+        executeJavaScript("arguments[0].scrollIntoView(true);", productQuickView);
+        executeJavaScript("arguments[0].click();", productQuickView);
         $(".ui-dialog").shouldBe(Condition.visible).$(".ty-product-thumbnails").shouldBe(Condition.enabled);
         Selenide.sleep(1000);
     }
