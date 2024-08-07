@@ -74,6 +74,13 @@ public class Storefront {
         takeScreenshot(screenshotName);
     }
 
+    @And("Делаем скриншот видео с автовоспроизведением для шаблона Каскад {string}")
+    public void takeScreenshotOfVideoWithAutoplayForCascade(String screenshotName) {
+        Selenide.sleep(2000);
+        videoWithAutoplay.scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}");
+        takeScreenshot(screenshotName);
+    }
+
     @And("Проверяем, что во вкладке товара видео с автовоспроизведением отсутствует")
     public void assertVideoWithAutoplayIsEmptyAtTab() {
         softAssert.assertFalse(youtubeVideoInTheTab.exists(),
@@ -96,5 +103,11 @@ public class Storefront {
     public void assertVideoDoesNOTAutoplayInProductList() {
         softAssert.assertFalse($(".ab__vg-product_list-video.hover_image").exists(),
                 "Video is shown with autoplay in the product list but shouldn't!");
+    }
+
+    @And("Проверяем, что видео автовоспроизводится на странице категории")
+    public void assertVideoAutoplaysInProductList() {
+        softAssert.assertTrue($(".ab__vg-product_list-video.hover_image").exists(),
+                "Video is not shown with autoplay in the product list!");
     }
 }

@@ -3,7 +3,7 @@
 # * Показывать информацию о товаре во вкладках -- нет
 # * Включить быстрый просмотр --                  да
 
-# Устанавливаем настройки модуля
+# Устанавливаем настройки модуля:
 # * Включить вертикальное отображение --          да
 
 @50_NoGallery02
@@ -27,10 +27,10 @@ Feature: Мини-иконки без галереи, Вкладки товар�
     Then Делаем скриншот "<screenRTL>"
 
     Examples:
-      |template                               |screenRu                                          |screenRTL  |
-      |abt__ut2_bigpicture_flat_template      |@50.00_NoGallery02 Галерея, Вертикально - БК плоский          |@50.02_NoGallery02 Галерея, Вертикально - БК плоский (RTL)        |
-      |bigpicture_template                    |@50.10_NoGallery02 Галерея, Вертикально - Большая картинка    |@50.12_NoGallery02 Галерея, Вертикально - Большая картинка (RTL)  |
-      |default_template                       |@50.20_NoGallery02 Галерея, Вертикально - Стандартный шаблон  |@50.22_NoGallery02 Галерея, Вертикально - Стандартный шаблон (RTL)|
-      |abt__ut2_three_columns_template        |@50.30_NoGallery02 Галерея, Вертикально - Трехколоночный      |@50.32_NoGallery02 Галерея, Вертикально - Трехколоночный (RTL)    |
-      |abt__ut2_bigpicture_gallery_template   |@50.40_NoGallery02 Галерея, Вертикально - Галерея             |@50.42_NoGallery02 Галерея, Вертикально - Галерея (RTL)           |
-      |abt__ut2_cascade_gallery_template      |@50.50_NoGallery02 Галерея, Вертикально - Каскад              |@50.52_NoGallery02 Галерея, Вертикально - Каскад (RTL)            |
+      |template                               |screenRu                                                          |screenRTL  |
+      |abt__ut2_bigpicture_flat_template      |@50.00_NoGallery02 Без галереи, Вертикально - БК плоский          |@50.02_NoGallery02 Без галереи, Вертикально - БК плоский (RTL)        |
+      |bigpicture_template                    |@50.10_NoGallery02 Без галереи, Вертикально - Большая картинка    |@50.12_NoGallery02 Без галереи, Вертикально - Большая картинка (RTL)  |
+      |default_template                       |@50.20_NoGallery02 Без галереи, Вертикально - Стандартный шаблон  |@50.22_NoGallery02 Без галереи, Вертикально - Стандартный шаблон (RTL)|
+      |abt__ut2_three_columns_template        |@50.30_NoGallery02 Без галереи, Вертикально - Трехколоночный      |@50.32_NoGallery02 Без галереи, Вертикально - Трехколоночный (RTL)    |
+      |abt__ut2_bigpicture_gallery_template   |@50.40_NoGallery02 Без галереи, Вертикально - Галерея             |@50.42_NoGallery02 Без галереи, Вертикально - Галерея (RTL)           |
+      |abt__ut2_cascade_gallery_template      |@50.50_NoGallery02 Без галереи, Вертикально - Каскад              |@50.52_NoGallery02 Без галереи, Вертикально - Каскад (RTL)            |

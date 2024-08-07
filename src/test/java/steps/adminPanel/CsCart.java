@@ -113,6 +113,12 @@ public class CsCart implements CheckMenuToBeActive {
             setting_ShowInProductLists.click();
     }
 
+    @And("Активируем настройку: Показывать в списках товаров")
+    public void enableSetting_ShowInProductLists() {
+        if(!setting_ShowInProductLists.isSelected())
+            setting_ShowInProductLists.click();
+    }
+
     //Меню "Модули -- Скачанные модули"
     SelenideElement menu_Addons = $("a[href$='dispatch=addons.manage'].main-menu-1__link");
     SelenideElement section_DownloadedAddons = $("#addons_downloaded_add_ons");
