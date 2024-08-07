@@ -6,7 +6,7 @@
 # Устанавливаем настройки модуля
 # * Включить вертикальное отображение --          нет
 
-@30_Gallery02
+@30_Gallery02_HorizontalView
 Feature: Мини-иконки в виде галереи, Вкладки товара, Горизонтальное отображение
 
   Scenario: Мини-иконки в виде галереи, Вкладки товара, Горизонтальное отображение
@@ -16,7 +16,7 @@ Feature: Мини-иконки в виде галереи, Вкладки тов
     When Переходим на страницу редактирования товара
     And Переходим на витрину страницы товара
     And Переходим на страницу категории и открываем окно быстрого просмотра товара
-    Then Делаем скриншот "@30_Gallery02 Окно быстрого просмотра"
+    Then Делаем скриншот "@30_Gallery02_HorizontalView Окно быстрого просмотра"
 
   Scenario Outline: Выполняем проверку на разных шаблонах товара
     When Переходим на страницу редактирования товара
@@ -27,10 +27,10 @@ Feature: Мини-иконки в виде галереи, Вкладки тов
     Then Делаем скриншот "<screenRTL>"
 
     Examples:
-      |template                               |screenRu                                          |screenRTL  |
-      |abt__ut2_bigpicture_flat_template      |@30.00_Gallery02 Галерея, Горизонтально - БК плоский          |@30.02_Gallery02 Галерея, Горизонтально - БК плоский (RTL)        |
-      |bigpicture_template                    |@30.10_Gallery02 Галерея, Горизонтально - Большая картинка    |@30.12_Gallery02 Галерея, Горизонтально - Большая картинка (RTL)  |
-      |default_template                       |@30.20_Gallery02 Галерея, Горизонтально - Стандартный шаблон  |@30.22_Gallery02 Галерея, Горизонтально - Стандартный шаблон (RTL)|
-      |abt__ut2_three_columns_template        |@30.30_Gallery02 Галерея, Горизонтально - Трехколоночный      |@30.32_Gallery02 Галерея, Горизонтально - Трехколоночный (RTL)    |
-      |abt__ut2_bigpicture_gallery_template   |@30.40_Gallery02 Галерея, Горизонтально - Галерея             |@30.42_Gallery02 Галерея, Горизонтально - Галерея (RTL)           |
-      |abt__ut2_cascade_gallery_template      |@30.50_Gallery02 Галерея, Горизонтально - Каскад              |@30.52_Gallery02 Галерея, Горизонтально - Каскад (RTL)            |
+      |template                               |screenRu                                              |screenRTL  |
+      |abt__ut2_bigpicture_flat_template      |@30.00_Gallery02_HorizontalView - БК плоский          |@30.02_Gallery02_HorizontalView - БК плоский (RTL)        |
+      |bigpicture_template                    |@30.10_Gallery02_HorizontalView - Большая картинка    |@30.12_Gallery02_HorizontalView - Большая картинка (RTL)  |
+      |default_template                       |@30.20_Gallery02_HorizontalView - Стандартный шаблон  |@30.22_Gallery02_HorizontalView - Стандартный шаблон (RTL)|
+      |abt__ut2_three_columns_template        |@30.30_Gallery02_HorizontalView - Трехколоночный      |@30.32_Gallery02_HorizontalView - Трехколоночный (RTL)    |
+      |abt__ut2_bigpicture_gallery_template   |@30.40_Gallery02_HorizontalView - Галерея             |@30.42_Gallery02_HorizontalView - Галерея (RTL)           |
+      |abt__ut2_cascade_gallery_template      |@30.50_Gallery02_HorizontalView - Каскад              |@30.52_Gallery02_HorizontalView - Каскад (RTL)            |

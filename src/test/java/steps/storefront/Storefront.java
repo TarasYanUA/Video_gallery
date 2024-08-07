@@ -48,6 +48,12 @@ public class Storefront {
         $("a[data-ca-name='ar']").click();
     }
 
+    @And("Переключаем на русский язык")
+    public void shiftToLanguageRU() {
+        $("a[id*='sw_select'][id*='wrap_language']").scrollTo().click();
+        $("a[data-ca-name='ru']").click();
+    }
+
     @And("Переходим на страницу категории и открываем окно быстрого просмотра товара")
     public void navigateToCategoryPage_OpenQuickView() {
         $(".ty-text-links-wrapper").scrollTo();

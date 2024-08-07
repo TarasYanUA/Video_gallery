@@ -119,6 +119,11 @@ public class CsCart implements CheckMenuToBeActive {
             setting_ShowInProductLists.click();
     }
 
+    @And("Активируем настройку: Тип иконки {string}")
+    public void selectSetting_IconType(String iconType) {
+        $("input[name='product_data[ab__vg_videos][0][icon_type]'][value='" + iconType + "']").click();
+    }
+
     //Меню "Модули -- Скачанные модули"
     SelenideElement menu_Addons = $("a[href$='dispatch=addons.manage'].main-menu-1__link");
     SelenideElement section_DownloadedAddons = $("#addons_downloaded_add_ons");
