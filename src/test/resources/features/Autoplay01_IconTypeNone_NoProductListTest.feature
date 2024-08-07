@@ -11,7 +11,7 @@
 # * Показывать в списках товаров  --              нет
 # * Тип иконки                    --              Без иконки
 
-@60_Autoplay_IconTypeNone_NoProductList
+@60_Autoplay01_IconTypeNone_NoProductList
 Feature: Автовоспроизведение видео только на странице товара, Вертикальное отображение
 
   Scenario: Автовоспроизведение видео только на странице товара, Вертикальное отображение
@@ -25,12 +25,12 @@ Feature: Автовоспроизведение видео только на с�
     And Активируем настройку: Тип иконки "none"
     And Переходим на витрину страницы товара
     And Проверяем, что видео с автовоспроизведением присутствует среди мини-иконок
-    And Делаем скриншот видео с автовоспроизведением "@60_Autoplay_IconTypeNone_NoProductList - Страница товара с Autoplay"
+    And Делаем скриншот видео с автовоспроизведением "@60_Autoplay01_IconTypeNone_NoProductList - Страница товара с Autoplay"
     And Проверяем, что во вкладке товара видео с автовоспроизведением отсутствует
     And Переходим на страницу категории и открываем окно быстрого просмотра товара
-    And Делаем скриншот видео с автовоспроизведением "@60_Autoplay_IconTypeNone_NoProductList - Окно быстрого просмотра с Autoplay"
+    And Делаем скриншот видео с автовоспроизведением "@60_Autoplay01_IconTypeNone_NoProductList - Окно быстрого просмотра с Autoplay"
     And Закрываем окно быстрого просмотра для товара
     And Проверяем, что видео НЕ автовоспроизводится на странице категории
-    Then Делаем скриншот "@60_Autoplay_IconTypeNone_NoProductList - Страница категории Без Autoplay"
+    Then Делаем скриншот "@60_Autoplay01_IconTypeNone_NoProductList - Страница категории Без Autoplay"
     And Переключаем на RTL язык
-    Then Делаем скриншот "@60_Autoplay_IconTypeNone_NoProductList - Страница категории Без Autoplay (RTL)"
+    Then Делаем скриншот "@60_Autoplay01_IconTypeNone_NoProductList - Страница категории Без Autoplay (RTL)"

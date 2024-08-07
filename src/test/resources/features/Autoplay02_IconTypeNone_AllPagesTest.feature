@@ -11,7 +11,7 @@
 # * Показывать в списках товаров  --              да
 # * Тип иконки                    --              Без иконки
 
-@70_Autoplay_IconTypeNone_AllPages
+@70_Autoplay02_IconTypeNone_AllPages
 Feature: Автовоспроизведение видео на всех страницах, Горизонтальное отображение
 
   Scenario: Автовоспроизведение видео на всех страницах, Горизонтальное отображение
@@ -25,18 +25,18 @@ Feature: Автовоспроизведение видео на всех стр�
     And Активируем настройку: Тип иконки "none"
     And Переходим на витрину страницы товара
     And Проверяем, что видео с автовоспроизведением присутствует среди мини-иконок
-    And Делаем скриншот видео с автовоспроизведением для шаблона Каскад "@70_Autoplay_IconTypeNone_AllPages - Страница товара Каскад с Autoplay"
+    And Делаем скриншот видео с автовоспроизведением для шаблона Каскад "@70_Autoplay02_IconTypeNone_AllPages - Страница товара Каскад с Autoplay"
     And Проверяем, что во вкладке товара видео с автовоспроизведением отсутствует
     And Переключаем на RTL язык
-    And Делаем скриншот видео с автовоспроизведением для шаблона Каскад "@70_Autoplay_IconTypeNone_AllPages - Страница товара Каскад с Autoplay (RTL)"
+    And Делаем скриншот видео с автовоспроизведением для шаблона Каскад "@70_Autoplay02_IconTypeNone_AllPages - Страница товара Каскад с Autoplay (RTL)"
     And Переключаем на русский язык
     And Переходим на страницу категории и открываем окно быстрого просмотра товара
-    And Делаем скриншот видео с автовоспроизведением "@70_Autoplay_IconTypeNone_AllPages - Окно быстрого просмотра с Autoplay"
+    And Делаем скриншот видео с автовоспроизведением "@70_Autoplay02_IconTypeNone_AllPages - Окно быстрого просмотра с Autoplay"
     And Закрываем окно быстрого просмотра для товара
     And Проверяем, что видео автовоспроизводится на странице категории
-    Then Делаем скриншот "@70_Autoplay_IconTypeNone_AllPages - Страница категории с Autoplay Без иконки"
+    Then Делаем скриншот "@70_Autoplay02_IconTypeNone_AllPages - Страница категории с Autoplay Без иконки"
     And Переключаем на RTL язык
-    Then Делаем скриншот "@70_Autoplay_IconTypeNone_AllPages - Страница категории с Autoplay Без иконки (RTL)"
+    Then Делаем скриншот "@70_Autoplay02_IconTypeNone_AllPages - Страница категории с Autoplay Без иконки (RTL)"
 
   Scenario Outline: Выполняем проверку на разных шаблонах товара
     When Переходим на страницу редактирования товара
@@ -48,8 +48,8 @@ Feature: Автовоспроизведение видео на всех стр�
 
     Examples:
       |template                               |screenRu                                                                  |screenRTL  |
-      |abt__ut2_bigpicture_flat_template      |@70.00_Autoplay_IconTypeNone_AllPages Горизонтально - БК плоский          |@70.02_Autoplay_IconTypeNone_AllPages Горизонтально - БК плоский (RTL)        |
-      |bigpicture_template                    |@70.10_Autoplay_IconTypeNone_AllPages Горизонтально - Большая картинка    |@70.12_Autoplay_IconTypeNone_AllPages Горизонтально - Большая картинка (RTL)  |
-      |default_template                       |@70.20_Autoplay_IconTypeNone_AllPages Горизонтально - Стандартный шаблон  |@70.22_Autoplay_IconTypeNone_AllPages Горизонтально - Стандартный шаблон (RTL)|
-      |abt__ut2_three_columns_template        |@70.30_Autoplay_IconTypeNone_AllPages Горизонтально - Трехколоночный      |@70.32_Autoplay_IconTypeNone_AllPages Горизонтально - Трехколоночный (RTL)    |
-      |abt__ut2_bigpicture_gallery_template   |@70.40_Autoplay_IconTypeNone_AllPages Горизонтально - Галерея             |@70.42_Autoplay_IconTypeNone_AllPages Горизонтально - Галерея (RTL)           |
+      |abt__ut2_bigpicture_flat_template      |@70.00_Autoplay02_IconTypeNone_AllPages Горизонтально - БК плоский          |@70.02_Autoplay02_IconTypeNone_AllPages Горизонтально - БК плоский (RTL)        |
+      |bigpicture_template                    |@70.10_Autoplay02_IconTypeNone_AllPages Горизонтально - Большая картинка    |@70.12_Autoplay02_IconTypeNone_AllPages Горизонтально - Большая картинка (RTL)  |
+      |default_template                       |@70.20_Autoplay02_IconTypeNone_AllPages Горизонтально - Стандартный шаблон  |@70.22_Autoplay02_IconTypeNone_AllPages Горизонтально - Стандартный шаблон (RTL)|
+      |abt__ut2_three_columns_template        |@70.30_Autoplay02_IconTypeNone_AllPages Горизонтально - Трехколоночный      |@70.32_Autoplay02_IconTypeNone_AllPages Горизонтально - Трехколоночный (RTL)    |
+      |abt__ut2_bigpicture_gallery_template   |@70.40_Autoplay02_IconTypeNone_AllPages Горизонтально - Галерея             |@70.42_Autoplay02_IconTypeNone_AllPages Горизонтально - Галерея (RTL)           |
