@@ -3,6 +3,7 @@ package hooks;
 import com.codeborne.selenide.*;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import org.testng.asserts.SoftAssert;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -21,12 +22,23 @@ public class DriverHooks {
         Configuration.screenshots = true; //делаем скриншоты при падении
         Configuration.timeout = 2000;   //настройка таймаута или Общая задержка
 
+        SoftAssert softAsserts = new SoftAssert();
+        CollectAssertMessages.setSoftAsserts(softAsserts);
+
         $(".btn.btn-primary").click();
         $("#bp_off_bottom_panel").click();
     }
 
     @After
     public void closerBrowser() {
+        SoftAssert softAsserts = CollectAssertMessages.getSoftAsserts();
+        try {
+            softAsserts.assertAll();
+        } catch (AssertionError e) {
+            System.out.println("\nОшибки в asserts:");
+            System.out.println(e.getMessage());
+        }
+
         closeWebDriver();
     }
 }

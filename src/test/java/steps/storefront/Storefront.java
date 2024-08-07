@@ -9,10 +9,13 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
+import hooks.CollectAssertMessages;
+
 import static com.codeborne.selenide.Selenide.*;
 
 public class Storefront {
     public Storefront() {super();}
+    SoftAssert softAssert = CollectAssertMessages.getSoftAsserts();
 
     String productName = DriverHooks.PRODUCT_NAME;
 
@@ -29,7 +32,6 @@ public class Storefront {
 
     @And("Проверяем, что во вкладке товара ровно {int} видео")
     public void assertProductTab_4Videos(int videoQuantity) {
-        SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(tab_VideoGallery.exists(),
                 "There is no tab 'Video gallery' on the product page!");
         tab_VideoGallery.click();
@@ -60,7 +62,6 @@ public class Storefront {
 
     @And("Проверяем, что видео с автовоспроизведением присутствует среди мини-иконок")
     public void assertVideoWithAutoplayExistsAtMiniIconsGallery() {
-        SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(miniIconOfYoutubeVideo.exists(),
                 "There is no video with autoplay at mini-icons gallery!");
     }
@@ -75,7 +76,6 @@ public class Storefront {
 
     @And("Проверяем, что во вкладке товара видео с автовоспроизведением отсутствует")
     public void assertVideoWithAutoplayIsEmptyAtTab() {
-        SoftAssert softAssert = new SoftAssert();
         softAssert.assertFalse(youtubeVideoInTheTab.exists(),
                 "There is a video with autoplay in the product tab but shouldn't!");
     }
@@ -94,8 +94,7 @@ public class Storefront {
 
     @And("Проверяем, что видео НЕ автовоспроизводится на странице категории")
     public void assertVideoDoesNOTAutoplayInProductList() {
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertFalse($(".ab__vg-image_gallery_video-wrapper").exists(),
+        softAssert.assertFalse($(".ab__vg-product_list-video.hover_image").exists(),
                 "Video is shown with autoplay in the product list but shouldn't!");
     }
 }
