@@ -34,6 +34,7 @@ public class CsCart implements CheckMenuToBeActive {
     SelenideElement productTemplate = $(By.id("elm_details_layout"));
     SelenideElement gearWheelOnTop = $(".dropdown-icon--tools");
     SelenideElement button_Preview = $x("//a[contains(text(), 'Предпросмотр')]");
+    SelenideElement setting_SetVideoAsDefaultProductImage = $(By.id("ab__vg__replace_image"));
     SelenideElement setting_Autoplay = $("input#ab__vg__autoplay__0");
     SelenideElement setting_ShowInProductLists = $("input#ab__vg__show_in_list__0");
 
@@ -100,6 +101,12 @@ public class CsCart implements CheckMenuToBeActive {
         selectElement.selectOptionByValue(randomValue);
     }
 
+    @And("Активируем настройку: Установить видео как изображение товара по умолчанию")
+    public void enableSetting_SetVideoAsDefaultProductImage() {
+        if(!setting_SetVideoAsDefaultProductImage.isSelected())
+            setting_SetVideoAsDefaultProductImage.click();
+    }
+
     @And("Активируем настройку: Автовоспроизведение")
     public void enableSetting_Autoplay() {
         executeJavaScript("window.scrollTo(0, -document.body.scrollHeight);");
@@ -108,15 +115,23 @@ public class CsCart implements CheckMenuToBeActive {
             setting_Autoplay.click();
     }
 
-    @And("Отключаем настройку: Показывать в списках товаров")
-    public void disableSetting_ShowInProductLists() {
-        if(setting_ShowInProductLists.isSelected())
-            setting_ShowInProductLists.click();
+    @And("Отключаем настройку: Автовоспроизведение")
+    public void disableSetting_Autoplay() {
+        executeJavaScript("window.scrollTo(0, -document.body.scrollHeight);");
+        tab_VideoGallery.click();
+        if(setting_Autoplay.isSelected())
+            setting_Autoplay.click();
     }
 
     @And("Активируем настройку: Показывать в списках товаров")
     public void enableSetting_ShowInProductLists() {
         if(!setting_ShowInProductLists.isSelected())
+            setting_ShowInProductLists.click();
+    }
+
+    @And("Отключаем настройку: Показывать в списках товаров")
+    public void disableSetting_ShowInProductLists() {
+        if(setting_ShowInProductLists.isSelected())
             setting_ShowInProductLists.click();
     }
 
@@ -141,6 +156,8 @@ public class CsCart implements CheckMenuToBeActive {
     SelenideElement gearwheelOfVideoGallery = $("tr#addon_ab__video_gallery button.btn.dropdown-toggle");
     SelenideElement sectionOfVideoGallery_GeneralSettings = $(".dropdown-menu a[href$='addon=ab__video_gallery&selected_section=settings']");
     SelenideElement tab_Settings = $("#settings");
+    SelenideElement menuOfUniTheme = $("tr#addon_abt__unitheme2 button.btn.dropdown-toggle");
+    SelenideElement sectionThemeSettings = $("div.nowrap a[href*='abt__ut2.settings']");
 
     private void navigateTo_DownloadedAddonsPage() {
         checkMenuToBeActive("dispatch=addons.manage", menu_Addons);
@@ -153,6 +170,14 @@ public class CsCart implements CheckMenuToBeActive {
         gearwheelOfVideoGallery.click();
         sectionOfVideoGallery_GeneralSettings.click();
         tab_Settings.click();
+    }
+
+    @And("Переходим на страницу настроек темы UniTheme")
+    public UniThemeSettings navigateTo_UniThemeSettings() {
+        navigateTo_DownloadedAddonsPage();
+        menuOfUniTheme.click();
+        sectionThemeSettings.click();
+        return new UniThemeSettings();
     }
 
 
