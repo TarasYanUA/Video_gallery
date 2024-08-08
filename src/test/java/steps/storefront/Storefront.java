@@ -21,7 +21,8 @@ public class Storefront {
 
     SelenideElement tab_VideoGallery = $(By.id("ab__video_gallery"));
     SelenideElement miniIconOfYoutubeVideo = $("a.ty-product-thumbnails__item img[alt='Музыка, успокаивает нервную систему и радует душу']");
-    SelenideElement videoWithAutoplay = $(".ab__vg-image_gallery_video.ab__vg-image_gallery_video-autoplay");
+    SelenideElement videoWithAutoplay_onProductPage = $(".ab__vg-image_gallery_video.ab__vg-image_gallery_video-autoplay");
+    SelenideElement videoWithAutoplay_OnCategoryPage = $(".ab__vg-product_list-video.hover_image");
     SelenideElement youtubeVideoInTheTab = $(".ab__video_gallery-block img[alt='Музыка, успокаивает нервную систему и радует душу']");
 
     @Then("Делаем скриншот {string}")
@@ -76,14 +77,14 @@ public class Storefront {
     public void takeScreenshotOfVideoWithAutoplay(String screenshotName) {
         miniIconOfYoutubeVideo.click();
         Selenide.sleep(2000);
-        videoWithAutoplay.scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}");
+        videoWithAutoplay_onProductPage.scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}");
         takeScreenshot(screenshotName);
     }
 
     @And("Делаем скриншот видео с автовоспроизведением для шаблона Каскад {string}")
     public void takeScreenshotOfVideoWithAutoplayForCascade(String screenshotName) {
         Selenide.sleep(2000);
-        videoWithAutoplay.scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}");
+        videoWithAutoplay_onProductPage.scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}");
         takeScreenshot(screenshotName);
     }
 
@@ -107,13 +108,19 @@ public class Storefront {
 
     @And("Проверяем, что видео НЕ автовоспроизводится на странице категории")
     public void assertVideoDoesNOTAutoplayInProductList() {
-        softAssert.assertFalse($(".ab__vg-product_list-video.hover_image").exists(),
+        softAssert.assertFalse(videoWithAutoplay_OnCategoryPage.exists(),
                 "Video is shown with autoplay in the product list but shouldn't!");
     }
 
     @And("Проверяем, что видео автовоспроизводится на странице категории")
     public void assertVideoAutoplaysInProductList() {
-        softAssert.assertTrue($(".ab__vg-product_list-video.hover_image").exists(),
+        softAssert.assertTrue(videoWithAutoplay_OnCategoryPage.exists(),
                 "Video is not shown with autoplay in the product list!");
+    }
+
+    @And("Наводим курсор мыши на товар с видео на странице категории")
+    public void hoverMousePointerOverProductWithVideo() {
+        videoWithAutoplay_OnCategoryPage.hover();
+        Selenide.sleep(1500);
     }
 }

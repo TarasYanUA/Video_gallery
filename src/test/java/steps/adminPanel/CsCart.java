@@ -7,6 +7,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
@@ -123,6 +124,16 @@ public class CsCart implements CheckMenuToBeActive {
     public void selectSetting_IconType(String iconType) {
         $("input[name='product_data[ab__vg_videos][0][icon_type]'][value='" + iconType + "']").click();
     }
+
+    @And("Добавляем изображение для видео")
+    public void addImageForVideo() {
+        $("div[id^='link_container_'] a[id^='url_']").click();
+        Alert alert = webdriver().driver().switchTo().alert();
+        sleep(1500);
+        alert.sendKeys("https://i.artfile.ru/1920x1080_1704830_[www.ArtFile.ru].jpg");
+        alert.accept();
+    }
+
 
     //Меню "Модули -- Скачанные модули"
     SelenideElement menu_Addons = $("a[href$='dispatch=addons.manage'].main-menu-1__link");
