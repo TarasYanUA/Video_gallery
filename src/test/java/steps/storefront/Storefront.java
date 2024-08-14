@@ -76,14 +76,14 @@ public class Storefront {
     @And("Делаем скриншот видео с автовоспроизведением {string}")
     public void takeScreenshotOfVideoWithAutoplay(String screenshotName) {
         miniIconOfYoutubeVideo.click();
-        Selenide.sleep(2000);
+        Selenide.sleep(3000);
         videoWithAutoplay_onProductPage.scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}");
         takeScreenshot(screenshotName);
     }
 
     @And("Делаем скриншот видео с автовоспроизведением для шаблона Каскад {string}")
     public void takeScreenshotOfVideoWithAutoplayForCascade(String screenshotName) {
-        Selenide.sleep(2000);
+        Selenide.sleep(3000);
         videoWithAutoplay_onProductPage.scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}");
         takeScreenshot(screenshotName);
     }
@@ -122,5 +122,11 @@ public class Storefront {
     public void hoverMousePointerOverProductWithVideo() {
         videoWithAutoplay_OnCategoryPage.hover();
         Selenide.sleep(1500);
+    }
+
+    @Then("Проверяем, что видео является главным изображением товара")
+    public void assertThatVideoIsMainImageOfProduct() {
+        softAssert.assertTrue($(".ab_vg-replace_image").exists(),
+                "Video is not the main image of the product on the product page!");
     }
 }

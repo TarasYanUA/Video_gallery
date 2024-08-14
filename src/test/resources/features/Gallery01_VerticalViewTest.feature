@@ -16,7 +16,7 @@ Feature: Мини-иконки в виде галереи, Вкладки тов
     When Переходим на страницу редактирования товара
     And Переходим на витрину страницы товара
     And Переходим на страницу категории и открываем окно быстрого просмотра товара
-    Then Делаем скриншот "@20_@20_Gallery01_VerticalView - Окно быстрого просмотра"
+    Then Делаем скриншот "@20_Gallery01_VerticalView - Окно быстрого просмотра"
 
   Scenario Outline: Выполняем проверку на разных шаблонах товара
     When Переходим на страницу редактирования товара
@@ -28,9 +28,9 @@ Feature: Мини-иконки в виде галереи, Вкладки тов
 
     Examples:
       |template                               |screenRu                                                |screenRTL  |
-      |abt__ut2_bigpicture_flat_template      |@20.00_@20_Gallery01_VerticalView - БК плоский          |@20.02_@20_Gallery01_VerticalView - БК плоский (RTL)        |
-      |bigpicture_template                    |@20.10_@20_Gallery01_VerticalView - Большая картинка    |@20.12_@20_Gallery01_VerticalView - Большая картинка (RTL)  |
-      |default_template                       |@20.20_@20_Gallery01_VerticalView - Стандартный шаблон  |@20.22_@20_Gallery01_VerticalView - Стандартный шаблон (RTL)|
-      |abt__ut2_three_columns_template        |@20.30_@20_Gallery01_VerticalView - Трехколоночный      |@20.32_@20_Gallery01_VerticalView - Трехколоночный (RTL)    |
-      |abt__ut2_bigpicture_gallery_template   |@20.40_@20_Gallery01_VerticalView - Галерея             |@20.42_@20_Gallery01_VerticalView - Галерея (RTL)           |
-      |abt__ut2_cascade_gallery_template      |@20.50_@20_Gallery01_VerticalView - Каскад              |@20.52_@20_Gallery01_VerticalView - Каскад (RTL)            |
+      |abt__ut2_bigpicture_flat_template      |@20.00_Gallery01_VerticalView - БК плоский          |@20.02_Gallery01_VerticalView - БК плоский (RTL)        |
+      |bigpicture_template                    |@20.10_Gallery01_VerticalView - Большая картинка    |@20.12_Gallery01_VerticalView - Большая картинка (RTL)  |
+      |default_template                       |@20.20_Gallery01_VerticalView - Стандартный шаблон  |@20.22_Gallery01_VerticalView - Стандартный шаблон (RTL)|
+      |abt__ut2_three_columns_template        |@20.30_Gallery01_VerticalView - Трехколоночный      |@20.32_Gallery01_VerticalView - Трехколоночный (RTL)    |
+      |abt__ut2_bigpicture_gallery_template   |@20.40_Gallery01_VerticalView - Галерея             |@20.42_Gallery01_VerticalView - Галерея (RTL)           |
+      |abt__ut2_cascade_gallery_template      |@20.50_Gallery01_VerticalView - Каскад              |@20.52_Gallery01_VerticalView - Каскад (RTL)            |
