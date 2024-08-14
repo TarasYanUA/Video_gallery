@@ -8,7 +8,7 @@ import org.testng.asserts.SoftAssert;
 import static com.codeborne.selenide.Selenide.*;
 
 public class DriverHooks {
-    public static final String BASIC_URL = "https://trs.test.abt.team/4182ultru_unitheme2/admin.php?dispatch=addons.manage";
+    public static final String BASIC_URL = "https://trs.test.abt.team/4182ultru/admin.php?dispatch=products.manage";
     public static final String PRODUCT_NAME = "Nike Tenkay Slip";
 
     public DriverHooks() {super();}
