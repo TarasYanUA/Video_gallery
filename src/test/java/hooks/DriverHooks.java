@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DriverHooks {
     public static final String BASIC_URL = "https://trs.test.abt.team/4182ultru/admin.php?dispatch=products.manage";
-    public static final String PRODUCT_NAME = "Nike Tenkay Slip";
+    public static final String PRODUCT_NAME = "adizero Rush Shoes";
 
     public DriverHooks() {super();}
 

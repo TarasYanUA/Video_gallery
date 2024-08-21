@@ -9,7 +9,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,17 +41,20 @@ public class CsCart implements CheckMenuToBeActive {
     public void navigateTo_ProductPage() {
         checkMenuToBeActive("dispatch=products.manage", menu_Products);
         section_Products.click();
-        //$x("//td[@class='product-name-column wrap-word']//a[contains(text(), '" + productName + "')]").click();
-
         searchFieldOfProduct.click();
         searchFieldOfProduct.sendKeys(productName);
-        searchFieldOfProduct.sendKeys(Keys.ENTER);
         try {
-            Thread.sleep(2000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         anyProduct.click();
+    }
+
+    @And("Переходим во вкладку АВ: Видео галерея")
+    public void navigateToProductTab_AbVideoGallery() {
+        executeJavaScript("window.scrollTo(0, -document.body.scrollHeight);");
+        tab_VideoGallery.click();
     }
 
     @And("Переходим на витрину страницы товара")
@@ -109,16 +111,12 @@ public class CsCart implements CheckMenuToBeActive {
 
     @And("Активируем настройку: Автовоспроизведение")
     public void enableSetting_Autoplay() {
-        executeJavaScript("window.scrollTo(0, -document.body.scrollHeight);");
-        tab_VideoGallery.click();
         if(!setting_Autoplay.isSelected())
             setting_Autoplay.click();
     }
 
     @And("Отключаем настройку: Автовоспроизведение")
     public void disableSetting_Autoplay() {
-        executeJavaScript("window.scrollTo(0, -document.body.scrollHeight);");
-        tab_VideoGallery.click();
         if(setting_Autoplay.isSelected())
             setting_Autoplay.click();
     }
