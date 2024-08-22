@@ -121,7 +121,7 @@ public class CsCart implements CheckMenuToBeActive {
     }
 
     //option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@name, 'product_data[ab__vg_videos]')][@value='" + iconType + "']
-    @When("Активируем значение настройки {string} для видео с типом {string}")
+    @When("У настройки `Тип иконки` выбираем значение {string} для видео с типом {string}")
     public void selectValueForSetting_IconType(String iconType, String videoType) {
         $x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@name, 'product_data[ab__vg_videos]')][@value='" + iconType + "']").click();
     }

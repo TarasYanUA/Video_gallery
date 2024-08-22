@@ -77,8 +77,8 @@ public class Storefront {
 
     @And("Делаем скриншот видео с автовоспроизведением для шаблона Каскад {string}")
     public void takeScreenshotOfVideoWithAutoplayForCascade(String screenshotName) {
-        Selenide.sleep(3000);
         videoWithAutoplay_onProductPage.scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}");
+        Selenide.sleep(3000);
         takeScreenshot(screenshotName);
     }
 
