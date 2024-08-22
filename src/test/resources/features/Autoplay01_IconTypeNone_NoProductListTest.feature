@@ -20,20 +20,32 @@ Feature: Автовоспроизведение видео только на с�
     And Настройки модуля: Включить вертикальное отображение
     When Переходим на страницу редактирования товара
     And Устанавливаем произвольный шаблон страницы товара, кроме Каскадной галереи
-    And Переходим во вкладку АВ: Видео галерея
 
+  Scenario Outline: Выполняем проверку Автовоспроизведения с разными типами видео
+    When Переходим на страницу редактирования товара
+    When Переходим во вкладку АВ: Видео галерея
+    When Активируем настройку "<Autoplay>" для видео с типом "<Video type>"
+    When Отключаем настройку "<Show in list>" для видео с типом "<Video type>"
+    When Активируем значение настройки "<Icon type>" для видео с типом "<Video type>"
 
-    And Активируем настройку: Автовоспроизведение
-    And Отключаем настройку: Показывать в списках товаров
-    And Активируем настройку: Тип иконки "none"
     And Переходим на витрину страницы товара
     And Проверяем, что видео с автовоспроизведением присутствует среди мини-иконок
-    And Делаем скриншот видео с автовоспроизведением "@60_Autoplay01_IconTypeNone_NoProductList - Страница товара с Autoplay"
+    And Делаем скриншот видео с автовоспроизведением "<screenRu on product page>"
     And Проверяем, что во вкладке товара видео с автовоспроизведением отсутствует
+    And Переключаем язык на "ar"
+    And Делаем скриншот видео с автовоспроизведением "<screenRTL on product page>"
+    And Переключаем язык на "ru"
     And Переходим на страницу категории и открываем окно быстрого просмотра товара
-    And Делаем скриншот видео с автовоспроизведением "@60_Autoplay01_IconTypeNone_NoProductList - Окно быстрого просмотра с Autoplay"
-    And Закрываем окно быстрого просмотра для товара
+    And Делаем скриншот видео с автовоспроизведением "<Quick view>"
+    And Закрываем окно быстрого просмотра
     And Проверяем, что видео НЕ автовоспроизводится на странице категории
-    Then Делаем скриншот "@60_Autoplay01_IconTypeNone_NoProductList - Страница категории Без Autoplay"
-    And Переключаем на RTL язык
-    Then Делаем скриншот "@60_Autoplay01_IconTypeNone_NoProductList - Страница категории Без Autoplay (RTL)"
+    Then Делаем скриншот "<screenRu category page>"
+    And Переключаем язык на "ar"
+    Then Делаем скриншот "<screenRTL category page>"
+
+    Examples:
+      |Video type |Autoplay           |Show in list           |Icon type  |screenRu on product page                             |screenRTL on product page                                  |Quick view                                             |screenRu category page                                     |screenRTL category page                                         |
+      #|YouTube    |ab__vg__autoplay__ |ab__vg__show_in_list__ |none       |@60_Autoplay01 - YouTube, Страница товара с Autoplay |@60_Autoplay01 - YouTube, Страница товара с Autoplay (RTL) |@60_Autoplay01 - YouTube, Быстрый просмотр с Autoplay  |@60_Autoplay01 - YouTube, страница категории без Autoplay  |@60_Autoplay01 - YouTube, Страница категории Без Autoplay (RTL) |
+      #|Vimeo      |ab__vg__autoplay__ |ab__vg__show_in_list__ |none       |@60_Autoplay01 - Vimeo, Страница товара с Autoplay   |@60_Autoplay01 - Vimeo, Страница товара с Autoplay (RTL)   |@60_Autoplay01 - Vimeo, Быстрый просмотр с Autoplay    |@60_Autoplay01 - Vimeo, страница категории без Autoplay    |@60_Autoplay01 - Vimeo, Страница категории Без Autoplay (RTL)   |
+      |Ссылка     |ab__vg__autoplay__ |ab__vg__show_in_list__ |none       |@60_Autoplay01 - Link, Страница товара с Autoplay    |@60_Autoplay01 - Link, Страница товара с Autoplay (RTL)    |@60_Autoplay01 - Link, Быстрый просмотр с Autoplay     |@60_Autoplay01 - Link, страница категории без Autoplay     |@60_Autoplay01 - Link, Страница категории Без Autoplay  (RTL)   |
+      |Ресурс     |ab__vg__autoplay__ |ab__vg__show_in_list__ |none       |@60_Autoplay01 - Resource, Страница товара с Autoplay|@60_Autoplay01 - Resource, Страница товара с Autoplay (RTL)|@60_Autoplay01 - Resource, Быстрый просмотр с Autoplay |@60_Autoplay01 - Resource, страница категории без Autoplay |@60_Autoplay01 - Resource, Страница категории Без Autoplay (RTL)|

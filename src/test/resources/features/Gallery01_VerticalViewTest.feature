@@ -23,11 +23,11 @@ Feature: Мини-иконки в виде галереи, Вкладки тов
     And Устанавливаем товару шаблон "<template>"
     And Переходим на витрину страницы товара
     And Делаем скриншот "<screenRu>"
-    And Переключаем на RTL язык
+    And Переключаем язык на "ar"
     Then Делаем скриншот "<screenRTL>"
 
     Examples:
-      |template                               |screenRu                                                |screenRTL  |
+      |template                               |screenRu                                            |screenRTL  |
       |abt__ut2_bigpicture_flat_template      |@20.00_Gallery01_VerticalView - БК плоский          |@20.02_Gallery01_VerticalView - БК плоский (RTL)        |
       |bigpicture_template                    |@20.10_Gallery01_VerticalView - Большая картинка    |@20.12_Gallery01_VerticalView - Большая картинка (RTL)  |
       |default_template                       |@20.20_Gallery01_VerticalView - Стандартный шаблон  |@20.22_Gallery01_VerticalView - Стандартный шаблон (RTL)|

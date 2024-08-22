@@ -34,8 +34,6 @@ public class CsCart implements CheckMenuToBeActive {
     SelenideElement gearWheelOnTop = $(".dropdown-icon--tools");
     SelenideElement button_Preview = $x("//a[contains(text(), 'Предпросмотр')]");
     SelenideElement setting_SetVideoAsDefaultProductImage = $(By.id("ab__vg__replace_image"));
-    SelenideElement setting_Autoplay = $("input#ab__vg__autoplay__0");
-    SelenideElement setting_ShowInProductLists = $("input#ab__vg__show_in_list__0");
 
     @When("Переходим на страницу редактирования товара")
     public void navigateTo_ProductPage() {
@@ -51,7 +49,7 @@ public class CsCart implements CheckMenuToBeActive {
         anyProduct.click();
     }
 
-    @And("Переходим во вкладку АВ: Видео галерея")
+    @When("Переходим во вкладку АВ: Видео галерея")
     public void navigateToProductTab_AbVideoGallery() {
         executeJavaScript("window.scrollTo(0, -document.body.scrollHeight);");
         tab_VideoGallery.click();
@@ -109,33 +107,23 @@ public class CsCart implements CheckMenuToBeActive {
             setting_SetVideoAsDefaultProductImage.click();
     }
 
-    @And("Активируем настройку: Автовоспроизведение")
-    public void enableSetting_Autoplay() {
-        if(!setting_Autoplay.isSelected())
-            setting_Autoplay.click();
+    @When("Активируем настройку {string} для видео с типом {string}")
+    public void enableSettingInTab_AbVideoGallery(String settingName, String videoType) {
+        if(!$x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@id, '" + settingName + "')]").isSelected())
+            $x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@id, '" + settingName + "')]").click();
     }
 
-    @And("Отключаем настройку: Автовоспроизведение")
-    public void disableSetting_Autoplay() {
-        if(setting_Autoplay.isSelected())
-            setting_Autoplay.click();
+    //option[@selected='' and text()='YouTube']/../../../..//input[contains(@id, 'ab__vg__autoplay__')]
+    @When("Отключаем настройку {string} для видео с типом {string}")
+    public void disableSettingInTab_AbVideoGallery(String settingName, String videoType) {
+        if($x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@id, '" + settingName + "')]").isSelected())
+            $x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@id, '" + settingName + "')]").click();
     }
 
-    @And("Активируем настройку: Показывать в списках товаров")
-    public void enableSetting_ShowInProductLists() {
-        if(!setting_ShowInProductLists.isSelected())
-            setting_ShowInProductLists.click();
-    }
-
-    @And("Отключаем настройку: Показывать в списках товаров")
-    public void disableSetting_ShowInProductLists() {
-        if(setting_ShowInProductLists.isSelected())
-            setting_ShowInProductLists.click();
-    }
-
-    @And("Активируем настройку: Тип иконки {string}")
-    public void selectSetting_IconType(String iconType) {
-        $("input[name='product_data[ab__vg_videos][0][icon_type]'][value='" + iconType + "']").click();
+    //option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@name, 'product_data[ab__vg_videos]')][@value='" + iconType + "']
+    @When("Активируем значение настройки {string} для видео с типом {string}")
+    public void selectValueForSetting_IconType(String iconType, String videoType) {
+        $x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@name, 'product_data[ab__vg_videos]')][@value='" + iconType + "']").click();
     }
 
     @And("Добавляем изображение для видео")

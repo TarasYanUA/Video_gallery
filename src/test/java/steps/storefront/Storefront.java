@@ -43,16 +43,10 @@ public class Storefront {
         softAssert.assertAll();
     }
 
-    @And("Переключаем на RTL язык")
-    public void shiftToLanguageRTL() {
+    @And("Переключаем язык на {string}")
+    public void shiftToLanguageRTL(String langRuAr) {
         $("a[id*='sw_select'][id*='wrap_language']").scrollTo().click();
-        $("a[data-ca-name='ar']").click();
-    }
-
-    @And("Переключаем на русский язык")
-    public void shiftToLanguageRU() {
-        $("a[id*='sw_select'][id*='wrap_language']").scrollTo().click();
-        $("a[data-ca-name='ru']").click();
+        $("a[data-ca-name='" + langRuAr + "']").click();
     }
 
     @And("Переходим на страницу категории и открываем окно быстрого просмотра товара")
@@ -94,7 +88,7 @@ public class Storefront {
                 "There is a video with autoplay in the product tab but shouldn't!");
     }
 
-    @And("Закрываем окно быстрого просмотра для товара")
+    @And("Закрываем окно быстрого просмотра")
     public void closeQuickView() {
         $(".ui-icon-closethick").scrollTo().click();
         $(".ui-icon-closethick").shouldBe(Condition.disappear);
