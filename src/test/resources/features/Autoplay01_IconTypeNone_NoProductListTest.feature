@@ -19,7 +19,7 @@ Feature: Автовоспроизведение видео только на с�
     And Переходим в настройки модуля
     And Настройки модуля: Включить вертикальное отображение
     When Переходим на страницу редактирования товара
-    And Устанавливаем произвольный шаблон страницы товара, кроме Каскадной галереи
+    And Устанавливаем произвольный шаблон страницы товара
 
   Scenario Outline: Выполняем проверку Автовоспроизведения с разными типами видео
     When Переходим на страницу редактирования товара
@@ -36,7 +36,7 @@ Feature: Автовоспроизведение видео только на с�
     And Делаем скриншот видео с автовоспроизведением "<screenRTL on product page>"
     And Переключаем язык на "ru"
     And Переходим на страницу категории и открываем окно быстрого просмотра товара
-    And Делаем скриншот видео с автовоспроизведением "<Quick view>"
+    And Делаем скриншот видео <Icon> с автовоспроизведением в окне быстрого просмотра "<Quick view>"
     And Закрываем окно быстрого просмотра
     And Проверяем, что видео НЕ автовоспроизводится на странице категории
     Then Делаем скриншот "<screenRu category page>"
@@ -44,8 +44,8 @@ Feature: Автовоспроизведение видео только на с�
     Then Делаем скриншот "<screenRTL category page>"
 
     Examples:
-      |Video type |screenRu on product page                             |screenRTL on product page                                  |Quick view                                             |screenRu category page                                     |screenRTL category page                                         |
-      |YouTube    |@60_Autoplay01 - YouTube, Страница товара с Autoplay |@60_Autoplay01 - YouTube, Страница товара с Autoplay (RTL) |@60_Autoplay01 - YouTube, Быстрый просмотр с Autoplay  |@60_Autoplay01 - YouTube, страница категории без Autoplay  |@60_Autoplay01 - YouTube, Страница категории Без Autoplay (RTL) |
-      |Vimeo      |@60_Autoplay01 - Vimeo, Страница товара с Autoplay   |@60_Autoplay01 - Vimeo, Страница товара с Autoplay (RTL)   |@60_Autoplay01 - Vimeo, Быстрый просмотр с Autoplay    |@60_Autoplay01 - Vimeo, страница категории без Autoplay    |@60_Autoplay01 - Vimeo, Страница категории Без Autoplay (RTL)   |
-      |Ссылка     |@60_Autoplay01 - Link, Страница товара с Autoplay    |@60_Autoplay01 - Link, Страница товара с Autoplay (RTL)    |@60_Autoplay01 - Link, Быстрый просмотр с Autoplay     |@60_Autoplay01 - Link, страница категории без Autoplay     |@60_Autoplay01 - Link, Страница категории Без Autoplay  (RTL)   |
-      |Ресурс     |@60_Autoplay01 - Resource, Страница товара с Autoplay|@60_Autoplay01 - Resource, Страница товара с Autoplay (RTL)|@60_Autoplay01 - Resource, Быстрый просмотр с Autoplay |@60_Autoplay01 - Resource, страница категории без Autoplay |@60_Autoplay01 - Resource, Страница категории Без Autoplay (RTL)|
+      |Video type |Icon |screenRu on product page                             |screenRTL on product page                                  |Quick view                                             |screenRu category page                                     |screenRTL category page                                         |
+      |YouTube    |1    |@60_Autoplay01 - YouTube, Страница товара с Autoplay |@60_Autoplay01 - YouTube, Страница товара с Autoplay (RTL) |@60_Autoplay01 - YouTube, Быстрый просмотр с Autoplay  |@60_Autoplay01 - YouTube, страница категории без Autoplay  |@60_Autoplay01 - YouTube, Страница категории Без Autoplay (RTL) |
+      |Vimeo      |2    |@60_Autoplay01 - Vimeo, Страница товара с Autoplay   |@60_Autoplay01 - Vimeo, Страница товара с Autoplay (RTL)   |@60_Autoplay01 - Vimeo, Быстрый просмотр с Autoplay    |@60_Autoplay01 - Vimeo, страница категории без Autoplay    |@60_Autoplay01 - Vimeo, Страница категории Без Autoplay (RTL)   |
+      |Ссылка     |3    |@60_Autoplay01 - Link, Страница товара с Autoplay    |@60_Autoplay01 - Link, Страница товара с Autoplay (RTL)    |@60_Autoplay01 - Link, Быстрый просмотр с Autoplay     |@60_Autoplay01 - Link, страница категории без Autoplay     |@60_Autoplay01 - Link, Страница категории Без Autoplay  (RTL)   |
+      |Ресурс     |4    |@60_Autoplay01 - Resource, Страница товара с Autoplay|@60_Autoplay01 - Resource, Страница товара с Autoplay (RTL)|@60_Autoplay01 - Resource, Быстрый просмотр с Autoplay |@60_Autoplay01 - Resource, страница категории без Autoplay |@60_Autoplay01 - Resource, Страница категории Без Autoplay (RTL)|

@@ -71,22 +71,21 @@ public class CsCart implements CheckMenuToBeActive {
     @And("Устанавливаем товару шаблон {string}")
     public void setTemplateForProduct(String templateName) {
         productTemplate.selectOptionByValue(templateName);
+        button_SaveProduct.click();
     }
 
-    @And("Устанавливаем произвольный шаблон страницы товара, кроме Каскадной галереи")
+    @And("Устанавливаем произвольный шаблон страницы товара")
     public void selectRandomProductTemplate() {
         // Получаем все доступные опции
         SelenideElement selectElement = $(By.id("elm_details_layout"));
         ElementsCollection templateValues = selectElement.$$("option");
 
-        // Заполняем список, исключая "Каскад" и опции с текстом, содержащим "Родительское"
+        // Заполняем список, исключая опции с текстом, содержащим "Родительское"
         List<String> listOfValues = new ArrayList<>();
         for (SelenideElement option : templateValues) {
             String optionText = option.getText().toLowerCase();
             String optionValue = option.getValue();
-            if (!optionValue.equals("abt__ut2_cascade_gallery_template") &&
-                    !optionText.contains("родительское") &&
-                    !optionText.contains("─────────────")) {
+            if (!optionText.contains("родительское") && !optionText.contains("─────────────")) {
                 listOfValues.add(optionValue);
             }
         }
