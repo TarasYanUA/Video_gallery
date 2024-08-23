@@ -100,7 +100,7 @@ public class CsCart implements CheckMenuToBeActive {
         selectElement.selectOptionByValue(randomValue);
     }
 
-    @And("Активируем настройку: Установить видео как изображение товара по умолчанию")
+    @When("Активируем настройку: Установить видео как изображение товара по умолчанию")
     public void enableSetting_SetVideoAsDefaultProductImage() {
         if(!setting_SetVideoAsDefaultProductImage.isSelected())
             setting_SetVideoAsDefaultProductImage.click();
