@@ -21,6 +21,7 @@ public class Storefront {
 
     SelenideElement tab_VideoGallery = $(By.id("ab__video_gallery"));
     SelenideElement videoWithAutoplay = $(".ab__vg-image_gallery_video-autoplay");
+    SelenideElement videoWithAutoplay_CategoryPage = $(".ab__vg-product_list-video .ab__vg-image_gallery_video-autoplay");
     SelenideElement videoWithAutoplay_withHover = $(".ab__vg-product_list-video.hover_image");
     SelenideElement youtubeVideoInTheTab = $(".ab__video_gallery-block img[alt='Музыка, успокаивает нервную систему и радует душу']");
 
@@ -100,12 +101,18 @@ public class Storefront {
 
     @And("Проверяем, что видео НЕ автовоспроизводится на странице категории")
     public void assertVideoDoesNOTAutoplayInProductList() {
-        softAssert.assertFalse(videoWithAutoplay_withHover.exists(),
+        softAssert.assertFalse(videoWithAutoplay_CategoryPage.exists(),
                 "Video is shown with autoplay in the product list but shouldn't!");
     }
 
     @And("Проверяем, что видео автовоспроизводится на странице категории")
-    public void assertVideoAutoplaysInProductList() {
+    public void assertVideoAutoplayInProductList() {
+        softAssert.assertTrue(videoWithAutoplay_CategoryPage.exists(),
+                "Video is not shown with autoplay in the product list!");
+    }
+
+    @And("Проверяем, что видео автовоспроизводится при наведении мыши на странице категории")
+    public void assertVideoAutoplayWhenHover_InProductList() {
         softAssert.assertTrue(videoWithAutoplay_withHover.exists(),
                 "Video is not shown with autoplay in the product list!");
     }

@@ -11,13 +11,13 @@
 # * Показывать в списках товаров  --              да
 # * Тип иконки                    --              Без иконки
 
-@80_Autoplay03_IconTypeNone_AllPages
-Feature: Автовоспроизведение видео на всех страницах, Горизонтальное отображение
+@80_Autoplay04_AllProductTemplates
+Feature: Автовоспроизведение видео на всех шаблонах страницы товара, Без иконки, Вертикальное отображение
 
-  Scenario: Автовоспроизведение видео на всех страницах, Горизонтальное отображение
+  Scenario: Автовоспроизведение видео на всех шаблонах страницы товара, Без иконки, Вертикальное отображение
     And CS-Cart настройки: Показывать мини-иконки БЕЗ галереи, Показывать информацию о товаре Без вкладок, Включить быстрый просмотр
     And Переходим в настройки модуля
-    And Настройки модуля: Включить горизонтальное отображение
+    And Настройки модуля: Включить вертикальное отображение
     When Переходим на страницу редактирования товара
     When Переходим во вкладку АВ: Видео галерея
     When Активируем настройку "ab__vg__autoplay__" для видео с типом "YouTube"
@@ -36,10 +36,10 @@ Feature: Автовоспроизведение видео на всех стр�
     Then Делаем скриншот видео с автовоспроизведением "<screenRTL>"
 
     Examples:
-      |template                               |screenRu                                              |screenRTL  |
-      |abt__ut2_bigpicture_flat_template      |@80.00_Autoplay03 Горизонтально - БК плоский          |@80.02_Autoplay03 Горизонтально - БК плоский (RTL)        |
-      |bigpicture_template                    |@80.10_Autoplay03 Горизонтально - Большая картинка    |@80.12_Autoplay03 Горизонтально - Большая картинка (RTL)  |
-      |default_template                       |@80.20_Autoplay03 Горизонтально - Стандартный шаблон  |@80.22_Autoplay03 Горизонтально - Стандартный шаблон (RTL)|
-      |abt__ut2_three_columns_template        |@80.30_Autoplay03 Горизонтально - Трехколоночный      |@80.32_Autoplay03 Горизонтально - Трехколоночный (RTL)    |
-      |abt__ut2_bigpicture_gallery_template   |@80.40_Autoplay03 Горизонтально - Галерея             |@80.42_Autoplay03 Горизонтально - Галерея (RTL)           |
-      |abt__ut2_cascade_gallery_template      |@80.50_Autoplay03 Горизонтально - Каскад              |@80.52_Autoplay03 Горизонтально - Каскад (RTL)            |
+      |template                               |screenRu                                                                  |screenRTL  |
+      |abt__ut2_bigpicture_flat_template      |@80.00_Autoplay04_AllProductTemplates Горизонтально - БК плоский          |@80.02_Autoplay04_AllProductTemplates Горизонтально - БК плоский (RTL)        |
+      |bigpicture_template                    |@80.10_Autoplay04_AllProductTemplates Горизонтально - Большая картинка    |@80.12_Autoplay04_AllProductTemplates Горизонтально - Большая картинка (RTL)  |
+      |default_template                       |@80.20_Autoplay04_AllProductTemplates Горизонтально - Стандартный шаблон  |@80.22_Autoplay04_AllProductTemplates Горизонтально - Стандартный шаблон (RTL)|
+      |abt__ut2_three_columns_template        |@80.30_Autoplay04_AllProductTemplates Горизонтально - Трехколоночный      |@80.32_Autoplay04_AllProductTemplates Горизонтально - Трехколоночный (RTL)    |
+      |abt__ut2_bigpicture_gallery_template   |@80.40_Autoplay04_AllProductTemplates Горизонтально - Галерея             |@80.42_Autoplay04_AllProductTemplates Горизонтально - Галерея (RTL)           |
+      |abt__ut2_cascade_gallery_template      |@80.50_Autoplay04_AllProductTemplates Горизонтально - Каскад              |@80.52_Autoplay04_AllProductTemplates Горизонтально - Каскад (RTL)            |
