@@ -209,4 +209,9 @@ public class CsCart implements CheckMenuToBeActive {
         }
         button_SaveSettings.click();
     }
+
+    @And("Сохраняем страницу товара")
+    public void saveProductPage() {
+        button_SaveProduct.click();
+    }
 }
