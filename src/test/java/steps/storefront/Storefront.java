@@ -44,7 +44,7 @@ public class Storefront {
     }
 
     @And("Переключаем язык на {string}")
-    public void shiftToLanguageRTL(String langRuAr) {
+    public void shiftLanguage(String langRuAr) {
         $("a[id*='sw_select'][id*='wrap_language']").scrollTo().click();
         $("a[data-ca-name='" + langRuAr + "']").click();
     }
