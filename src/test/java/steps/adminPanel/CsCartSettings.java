@@ -5,8 +5,6 @@ import hooks.DriverHooks;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.When;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 
@@ -16,8 +14,10 @@ import java.util.Random;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class CsCart implements CheckMenuToBeActive {
-    public CsCart() {super();}
+public class CsCartSettings implements CheckMenuToBeActive {
+    public CsCartSettings() {
+        super();
+    }
 
     String productName = DriverHooks.PRODUCT_NAME;
 
@@ -35,27 +35,19 @@ public class CsCart implements CheckMenuToBeActive {
     SelenideElement button_Preview = $x("//a[contains(text(), 'Предпросмотр')]");
     SelenideElement setting_SetVideoAsDefaultProductImage = $(By.id("ab__vg__replace_image"));
 
-    @When("Переходим на страницу редактирования товара")
     public void navigateTo_ProductPage() {
         checkMenuToBeActive("dispatch=products.manage", menu_Products);
         section_Products.click();
-        searchFieldOfProduct.click();
         searchFieldOfProduct.sendKeys(productName);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        sleep(3000);
         anyProduct.click();
     }
 
-    @When("Переходим во вкладку АВ: Видео галерея")
     public void navigateToProductTab_AbVideoGallery() {
         executeJavaScript("window.scrollTo(0, -document.body.scrollHeight);");
         tab_VideoGallery.click();
     }
 
-    @And("Переходим на витрину страницы товара")
     public void navigateTo_StorefrontProductPage() {
         button_SaveProduct.click();
         Selenide.sleep(1500);
@@ -68,13 +60,11 @@ public class CsCart implements CheckMenuToBeActive {
         }
     }
 
-    @And("Устанавливаем товару шаблон {string}")
     public void setTemplateForProduct(String templateName) {
         productTemplate.selectOptionByValue(templateName);
         button_SaveProduct.click();
     }
 
-    @And("Устанавливаем произвольный шаблон страницы товара")
     public void selectRandomProductTemplate() {
         // Получаем все доступные опции
         SelenideElement selectElement = $(By.id("elm_details_layout"));
@@ -85,9 +75,8 @@ public class CsCart implements CheckMenuToBeActive {
         for (SelenideElement option : templateValues) {
             String optionText = option.getText().toLowerCase();
             String optionValue = option.getValue();
-            if (!optionText.contains("родительское") && !optionText.contains("─────────────")) {
+            if (!optionText.contains("родительское") && !optionText.contains("─────────────"))
                 listOfValues.add(optionValue);
-            }
         }
 
         // Выбор случайного элемента
@@ -100,38 +89,35 @@ public class CsCart implements CheckMenuToBeActive {
         selectElement.selectOptionByValue(randomValue);
     }
 
-    @When("Активируем настройку: Установить видео как изображение товара по умолчанию")
     public void enableSetting_SetVideoAsDefaultProductImage() {
-        if(!setting_SetVideoAsDefaultProductImage.isSelected())
+        if (!setting_SetVideoAsDefaultProductImage.isSelected())
             setting_SetVideoAsDefaultProductImage.click();
     }
 
-    @When("Активируем настройку {string} для видео с типом {string}")
-    public void enableSettingInTab_AbVideoGallery(String settingName, String videoType) {
-        if(!$x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@id, '" + settingName + "')]").isSelected())
-            $x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@id, '" + settingName + "')]").click();
+    public void toggleSettingInTab_AbVideoGallery(String action, String settingName, String videoType) {
+        SelenideElement checkbox = $x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@id, '" + settingName + "')]");
+
+        boolean shouldEnable = action.equalsIgnoreCase("Активируем");
+        boolean isCurrentlySelected = checkbox.isSelected();
+
+        if (shouldEnable != isCurrentlySelected)
+            checkbox.click();
     }
 
-    //option[@selected='' and text()='YouTube']/../../../..//input[contains(@id, 'ab__vg__autoplay__')]
-    @When("Отключаем настройку {string} для видео с типом {string}")
-    public void disableSettingInTab_AbVideoGallery(String settingName, String videoType) {
-        if($x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@id, '" + settingName + "')]").isSelected())
-            $x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@id, '" + settingName + "')]").click();
-    }
-
-    //option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@name, 'product_data[ab__vg_videos]')][@value='" + iconType + "']
-    @When("У настройки `Тип иконки` выбираем значение {string} для видео с типом {string}")
     public void selectValueForSetting_IconType(String iconType, String videoType) {
         $x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@name, 'product_data[ab__vg_videos]')][@value='" + iconType + "']").click();
     }
 
-    @And("Добавляем изображение для видео")
-    public void addImageForVideo() {
+    public void addImageForVideo(String image) {
         $("div[id^='link_container_'] a[id^='url_']").click();
         Alert alert = webdriver().driver().switchTo().alert();
         sleep(1500);
-        alert.sendKeys("https://i.artfile.ru/1920x1080_1704830_[www.ArtFile.ru].jpg");
+        alert.sendKeys(image);
         alert.accept();
+    }
+
+    public void saveProductPage() {
+        button_SaveProduct.click();
     }
 
 
@@ -149,7 +135,6 @@ public class CsCart implements CheckMenuToBeActive {
         section_DownloadedAddons.click();
     }
 
-    @And("Переходим в настройки модуля")
     public void navigateTo_VideoGallerySettings() {
         navigateTo_DownloadedAddonsPage();
         gearwheelOfVideoGallery.click();
@@ -157,7 +142,6 @@ public class CsCart implements CheckMenuToBeActive {
         tab_Settings.click();
     }
 
-    @And("Переходим на страницу настроек темы UniTheme")
     public UniThemeSettings navigateTo_UniThemeSettings() {
         navigateTo_DownloadedAddonsPage();
         menuOfUniTheme.click();
@@ -180,38 +164,21 @@ public class CsCart implements CheckMenuToBeActive {
         section_Appearance.click();
     }
 
-    @And("CS-Cart настройки: Показывать мини-иконки в виде галереи, Показывать информацию о товаре во вкладках, Включить быстрый просмотр")
-    public void setCsCartSettings_asGallery() {
+    public void setCsCartSettings_WithOrWithoutOptions(String galleryOption, String tabsOption) {
         navigateTo_AppearanceSettings();
-        if (!setting_displayImagesAsGallery.isSelected()) {
-            setting_displayImagesAsGallery.click();
-        }
-        if (!setting_displayProductDetailsInTabs.isSelected()) {
-            setting_displayProductDetailsInTabs.click();
-        }
-        if (!setting_quickView.isSelected()) {
-            setting_quickView.click();
-        }
-        button_SaveSettings.click();
-    }
 
-    @And("CS-Cart настройки: Показывать мини-иконки БЕЗ галереи, Показывать информацию о товаре Без вкладок, Включить быстрый просмотр")
-    public void setCsCartSettings_NoGallery() {
-        navigateTo_AppearanceSettings();
-        if (setting_displayImagesAsGallery.isSelected()) {
-            setting_displayImagesAsGallery.click();
-        }
-        if (setting_displayProductDetailsInTabs.isSelected()) {
-            setting_displayProductDetailsInTabs.click();
-        }
-        if (!setting_quickView.isSelected()) {
-            setting_quickView.click();
-        }
-        button_SaveSettings.click();
-    }
+        boolean galleryWithout = galleryOption.equalsIgnoreCase("БЕЗ");
+        boolean tabsWithout = tabsOption.equalsIgnoreCase("БЕЗ");
 
-    @And("Сохраняем страницу товара")
-    public void saveProductPage() {
-        button_SaveProduct.click();
+        if (setting_displayImagesAsGallery.isSelected() == galleryWithout)
+            setting_displayImagesAsGallery.click();
+
+        if (setting_displayProductDetailsInTabs.isSelected() == tabsWithout)
+            setting_displayProductDetailsInTabs.click();
+
+        if (!setting_quickView.isSelected())
+            setting_quickView.click();
+
+        button_SaveSettings.click();
     }
 }
