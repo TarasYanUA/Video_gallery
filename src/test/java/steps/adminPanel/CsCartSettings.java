@@ -24,6 +24,14 @@ public class CsCartSettings implements CheckMenuToBeActive {
     SelenideElement button_SaveSettings = $(".nav__actions-bar .cm-submit");
     SelenideElement button_SaveProduct = $(".cm-product-save-buttons");
 
+    public void saveSettings() {
+        button_SaveSettings.click();
+    }
+
+    public void saveProductPage() {
+        button_SaveProduct.click();
+    }
+
     //Меню "Товары -- Товары"
     SelenideElement menu_Products = $("a[href$='dispatch=products.manage'].main-menu-1__link");
     SelenideElement section_Products = $(By.id("products_products"));
@@ -49,7 +57,6 @@ public class CsCartSettings implements CheckMenuToBeActive {
     }
 
     public void navigateTo_StorefrontProductPage() {
-        button_SaveProduct.click();
         Selenide.sleep(1500);
         gearWheelOnTop.click();
         button_Preview.click();
@@ -62,7 +69,7 @@ public class CsCartSettings implements CheckMenuToBeActive {
 
     public void setTemplateForProduct(String templateName) {
         productTemplate.selectOptionByValue(templateName);
-        button_SaveProduct.click();
+        saveProductPage();
     }
 
     public void selectRandomProductTemplate() {
@@ -89,8 +96,11 @@ public class CsCartSettings implements CheckMenuToBeActive {
         selectElement.selectOptionByValue(randomValue);
     }
 
-    public void enableSetting_SetVideoAsDefaultProductImage() {
-        if (!setting_SetVideoAsDefaultProductImage.isSelected())
+    public void enableSetting_SetVideoAsDefaultProductImage(String action) {
+        boolean shouldEnable = action.equalsIgnoreCase("Активируем");
+        boolean isCurrentlySelected = setting_SetVideoAsDefaultProductImage.isSelected();
+
+        if (shouldEnable != isCurrentlySelected)
             setting_SetVideoAsDefaultProductImage.click();
     }
 
@@ -105,7 +115,8 @@ public class CsCartSettings implements CheckMenuToBeActive {
     }
 
     public void selectValueForSetting_IconType(String iconType, String videoType) {
-        $x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@name, 'product_data[ab__vg_videos]')][@value='" + iconType + "']").click();
+        $x("//option[@selected='' and text()='" +
+                videoType + "']/../../../..//input[contains(@name, 'product_data[ab__vg_videos]')][@value='" + iconType + "']").click();
     }
 
     public void addImageForVideo(String image) {
@@ -114,10 +125,6 @@ public class CsCartSettings implements CheckMenuToBeActive {
         sleep(1500);
         alert.sendKeys(image);
         alert.accept();
-    }
-
-    public void saveProductPage() {
-        button_SaveProduct.click();
     }
 
 
@@ -179,6 +186,6 @@ public class CsCartSettings implements CheckMenuToBeActive {
         if (!setting_quickView.isSelected())
             setting_quickView.click();
 
-        button_SaveSettings.click();
+        saveSettings();
     }
 }

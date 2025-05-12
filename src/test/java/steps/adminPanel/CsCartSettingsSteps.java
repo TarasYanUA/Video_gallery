@@ -1,6 +1,7 @@
 package steps.adminPanel;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class CsCartSettingsSteps {
@@ -34,9 +35,9 @@ public class CsCartSettingsSteps {
         csCartSettings.selectRandomProductTemplate();
     }
 
-    @When("Активируем настройку: Установить видео как изображение товара по умолчанию")
-    public void enableSetting_SetVideoAsDefaultProductImage() {
-        csCartSettings.enableSetting_SetVideoAsDefaultProductImage();
+    @When("{string} настройку: Установить видео как изображение товара по умолчанию")
+    public void enableSetting_SetVideoAsDefaultProductImage(String action) {
+        csCartSettings.enableSetting_SetVideoAsDefaultProductImage(action);
     }
 
     @When("{string} настройку {string} для видео с типом {string}")
@@ -54,7 +55,7 @@ public class CsCartSettingsSteps {
         csCartSettings.addImageForVideo("https://i.artfile.ru/1920x1080_1704830_[www.ArtFile.ru].jpg");
     }
 
-    @And("Сохраняем страницу товара")
+    @Then("Сохраняем страницу товара")
     public void saveProductPage() {
         csCartSettings.saveProductPage();
     }

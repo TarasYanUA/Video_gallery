@@ -41,7 +41,8 @@ public class AddDifferentVideosToProduct {
             $x("(//select[contains(@name, 'product_data[ab__vg_videos]')][contains(@name, '[type]')])[3]").click();
             $x("(//select[contains(@name, 'product_data[ab__vg_videos]')][contains(@name, '[type]')])[3]").selectOption("Ссылка");
             $x("(//input[contains(@name, 'product_data[ab__vg_videos]')][contains(@name, '[video_path]')])[3]").click();
-            $x("(//input[contains(@name, 'product_data[ab__vg_videos]')][contains(@name, '[video_path]')])[3]").setValue("https://ashdi.vip/vod/91121");
+            $x("(//input[contains(@name, 'product_data[ab__vg_videos]')][contains(@name, '[video_path]')])[3]")
+                    .setValue("https://ashdi.vip/vod/91121");
 
             //Добавляем видео типа "Ресурс"
             $x("(//tbody[contains(@id, 'box_add_ab__vg_video_')]//a[@class='btn btn-add'])[2]").click();
@@ -53,7 +54,8 @@ public class AddDifferentVideosToProduct {
             $x("(//select[contains(@name, 'product_data[ab__vg_videos]')][contains(@name, '[type]')])[4]").click();
             $x("(//select[contains(@name, 'product_data[ab__vg_videos]')][contains(@name, '[type]')])[4]").selectOption("Ресурс");
             $x("(//input[contains(@name, 'product_data[ab__vg_videos]')][contains(@name, '[video_path]')])[4]").click();
-            $x("(//input[contains(@name, 'product_data[ab__vg_videos]')][contains(@name, '[video_path]')])[4]").setValue("https://unitheme.net/images/ut2_banner_videos/33_52_ABSTRACT.mp4");
+            $x("(//input[contains(@name, 'product_data[ab__vg_videos]')][contains(@name, '[video_path]')])[4]")
+                    .setValue("https://unitheme.net/images/ut2_banner_videos/33_52_ABSTRACT.mp4");
         }
     }
 }
