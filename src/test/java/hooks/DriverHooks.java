@@ -8,7 +8,7 @@ import org.testng.asserts.SoftAssert;
 import static com.codeborne.selenide.Selenide.*;
 
 public class DriverHooks {
-    public static final String BASIC_URL = "https://abd-b8e1b1d431.demos.abt.team/admin.php?dispatch=addons.manage";
+    public static final String BASIC_URL = "https://trs.test.abt.team/4183ultru/admin.php?dispatch=currencies.manage";
     public static final String PRODUCT_NAME = "adizero Rush Shoes";
 
     public DriverHooks() {super();}
@@ -18,9 +18,8 @@ public class DriverHooks {
         Configuration.browser = "chrome";
         open(BASIC_URL);
         WebDriverRunner.getWebDriver().manage().window().maximize(); //окно браузера на весь экран
-        Configuration.holdBrowserOpen = false; //не закрываем браузер пока ведём разработку
         Configuration.screenshots = true; //делаем скриншоты при падении
-        Configuration.timeout = 2000;   //настройка таймаута или Общая задержка
+        Configuration.savePageSource = false; //не создавать html файлы при создании скриншотов
 
         SoftAssert softAsserts = new SoftAssert();
         CollectAssertMessages.setSoftAsserts(softAsserts);

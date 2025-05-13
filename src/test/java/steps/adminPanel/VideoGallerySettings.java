@@ -11,19 +11,14 @@ public class VideoGallerySettings {
     SelenideElement setting_EnableVerticalOutput = $("input[id*='addon_option_ab__video_gallery_vertical_']");
     SelenideElement button_SaveSettings = $(".cm-addons-save-settings");
 
-    @And("Настройки модуля: Включить вертикальное отображение")
-    public void enableVerticalView() {
-        if(!setting_EnableVerticalOutput.isSelected()) {
-            setting_EnableVerticalOutput.click();
-            button_SaveSettings.click();
-        }
-    }
+    @And("{string} настройку модуля: Включить вертикальное отображение")
+    public void enableHorizontalView(String action) {
+        boolean shouldEnable = action.equalsIgnoreCase("Активируем");
+        boolean isCurrentlySelected = setting_EnableVerticalOutput.isSelected();
 
-    @And("Настройки модуля: Включить горизонтальное отображение")
-    public void enableHorizontalView() {
-        if(setting_EnableVerticalOutput.isSelected()) {
+        if (shouldEnable != isCurrentlySelected)
             setting_EnableVerticalOutput.click();
-            button_SaveSettings.click();
-        }
+
+        button_SaveSettings.click();
     }
 }
