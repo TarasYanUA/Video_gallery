@@ -31,23 +31,25 @@ Feature: Автовоспроизведение видео только на с�
     Then Сохраняем страницу товара
 
     And Переходим на витрину страницы товара
-    And Проверяем, что видео с автовоспроизведением присутствует среди мини-иконок
+    And Выполняем проверки на витрине:
+      | Видео с автовоспроизведением присутствует среди мини-иконок         | y |
+      | Youtube видео с автовоспроизведением присутствует во вкладке товара | n |
     And Делаем скриншот видео с автовоспроизведением "<screenRu on product page>"
-    And Проверяем, что во вкладке товара видео с автовоспроизведением отсутствует
     And Переключаем язык на "ar"
     And Делаем скриншот видео с автовоспроизведением "<screenRTL on product page>"
     And Переключаем язык на "ru"
     And Переходим на страницу категории и открываем окно быстрого просмотра товара
     And Делаем скриншот видео <Icon> с автовоспроизведением в окне быстрого просмотра "<Quick view>"
     And Закрываем окно быстрого просмотра
-    And Проверяем, что видео НЕ автовоспроизводится на странице категории
+    And Выполняем проверки на витрине:
+      | Видео автовоспроизводится на странице категории | n |
     Then Делаем скриншот "<screenRu category page>"
     And Переключаем язык на "ar"
     Then Делаем скриншот "<screenRTL category page>"
 
     Examples:
-      |Video type |Icon |screenRu on product page                                           |screenRTL on product page                                                |Quick view                                                           |screenRu category page                                                   |screenRTL category page                                                       |
-      |YouTube    |1    |@60_Autoplay01_NoProductList - YouTube, Страница товара с Autoplay |@60_Autoplay01_NoProductList - YouTube, Страница товара с Autoplay (RTL) |@60_Autoplay01_NoProductList - YouTube, Быстрый просмотр с Autoplay  |@60_Autoplay01_NoProductList - YouTube, страница категории без Autoplay  |@60_Autoplay01_NoProductList - YouTube, Страница категории Без Autoplay (RTL) |
-      |Vimeo      |2    |@60_Autoplay01_NoProductList - Vimeo, Страница товара с Autoplay   |@60_Autoplay01_NoProductList - Vimeo, Страница товара с Autoplay (RTL)   |@60_Autoplay01_NoProductList - Vimeo, Быстрый просмотр с Autoplay    |@60_Autoplay01_NoProductList - Vimeo, страница категории без Autoplay    |@60_Autoplay01_NoProductList - Vimeo, Страница категории Без Autoplay (RTL)   |
-      |Ссылка     |3    |@60_Autoplay01_NoProductList - Link, Страница товара с Autoplay    |@60_Autoplay01_NoProductList - Link, Страница товара с Autoplay (RTL)    |@60_Autoplay01_NoProductList - Link, Быстрый просмотр с Autoplay     |@60_Autoplay01_NoProductList - Link, страница категории без Autoplay     |@60_Autoplay01_NoProductList - Link, Страница категории Без Autoplay  (RTL)   |
-      |Ресурс     |4    |@60_Autoplay01_NoProductList - Resource, Страница товара с Autoplay|@60_Autoplay01_NoProductList - Resource, Страница товара с Autoplay (RTL)|@60_Autoplay01_NoProductList - Resource, Быстрый просмотр с Autoplay |@60_Autoplay01_NoProductList - Resource, страница категории без Autoplay |@60_Autoplay01_NoProductList - Resource, Страница категории Без Autoplay (RTL)|
+      | Video type | Icon | screenRu on product page                                            | screenRTL on product page                                                 | Quick view                                                           | screenRu category page                                                   | screenRTL category page                                                        |
+      | YouTube    | 1    | @60_Autoplay01_NoProductList - YouTube, Страница товара с Autoplay  | @60_Autoplay01_NoProductList - YouTube, Страница товара с Autoplay (RTL)  | @60_Autoplay01_NoProductList - YouTube, Быстрый просмотр с Autoplay  | @60_Autoplay01_NoProductList - YouTube, страница категории без Autoplay  | @60_Autoplay01_NoProductList - YouTube, Страница категории Без Autoplay (RTL)  |
+      | Vimeo      | 2    | @60_Autoplay01_NoProductList - Vimeo, Страница товара с Autoplay    | @60_Autoplay01_NoProductList - Vimeo, Страница товара с Autoplay (RTL)    | @60_Autoplay01_NoProductList - Vimeo, Быстрый просмотр с Autoplay    | @60_Autoplay01_NoProductList - Vimeo, страница категории без Autoplay    | @60_Autoplay01_NoProductList - Vimeo, Страница категории Без Autoplay (RTL)    |
+      | Ссылка     | 3    | @60_Autoplay01_NoProductList - Link, Страница товара с Autoplay     | @60_Autoplay01_NoProductList - Link, Страница товара с Autoplay (RTL)     | @60_Autoplay01_NoProductList - Link, Быстрый просмотр с Autoplay     | @60_Autoplay01_NoProductList - Link, страница категории без Autoplay     | @60_Autoplay01_NoProductList - Link, Страница категории Без Autoplay  (RTL)    |
+      | Ресурс     | 4    | @60_Autoplay01_NoProductList - Resource, Страница товара с Autoplay | @60_Autoplay01_NoProductList - Resource, Страница товара с Autoplay (RTL) | @60_Autoplay01_NoProductList - Resource, Быстрый просмотр с Autoplay | @60_Autoplay01_NoProductList - Resource, страница категории без Autoplay | @60_Autoplay01_NoProductList - Resource, Страница категории Без Autoplay (RTL) |

@@ -25,8 +25,9 @@ Feature: Автовоспроизведение видео на всех шаб�
     When У настройки `Тип иконки` выбираем значение "none" для видео с типом "YouTube"
     Then Сохраняем страницу товара
     And Переходим на витрину страницы товара
-    And Проверяем, что видео с автовоспроизведением присутствует среди мини-иконок
-    And Проверяем, что во вкладке товара видео с автовоспроизведением отсутствует
+    And Выполняем проверки на витрине:
+      | Видео с автовоспроизведением присутствует среди мини-иконок         | y |
+      | Youtube видео с автовоспроизведением присутствует во вкладке товара | n |
 
   Scenario Outline: Выполняем проверку Автовоспроизведения с YouTube видео на всех шаблонах страницы товара
     When Переходим на страницу редактирования товара
@@ -38,10 +39,10 @@ Feature: Автовоспроизведение видео на всех шаб�
     Then Делаем скриншот видео с автовоспроизведением "<screenRTL>"
 
     Examples:
-      |template                               |screenRu                                                                  |screenRTL  |
-      |abt__ut2_bigpicture_flat_template      |@80.00_Autoplay04_AllProductTemplates Горизонтально - БК плоский          |@80.02_Autoplay04_AllProductTemplates Горизонтально - БК плоский (RTL)        |
-      |bigpicture_template                    |@80.10_Autoplay04_AllProductTemplates Горизонтально - Большая картинка    |@80.12_Autoplay04_AllProductTemplates Горизонтально - Большая картинка (RTL)  |
-      |default_template                       |@80.20_Autoplay04_AllProductTemplates Горизонтально - Стандартный шаблон  |@80.22_Autoplay04_AllProductTemplates Горизонтально - Стандартный шаблон (RTL)|
-      |abt__ut2_three_columns_template        |@80.30_Autoplay04_AllProductTemplates Горизонтально - Трехколоночный      |@80.32_Autoplay04_AllProductTemplates Горизонтально - Трехколоночный (RTL)    |
-      |abt__ut2_bigpicture_gallery_template   |@80.40_Autoplay04_AllProductTemplates Горизонтально - Галерея             |@80.42_Autoplay04_AllProductTemplates Горизонтально - Галерея (RTL)           |
-      |abt__ut2_cascade_gallery_template      |@80.50_Autoplay04_AllProductTemplates Горизонтально - Каскад              |@80.52_Autoplay04_AllProductTemplates Горизонтально - Каскад (RTL)            |
+      | template                             | screenRu                                                                 | screenRTL                                                                      |
+      | abt__ut2_bigpicture_flat_template    | @80.00_Autoplay04_AllProductTemplates Горизонтально - БК плоский         | @80.02_Autoplay04_AllProductTemplates Горизонтально - БК плоский (RTL)         |
+      | bigpicture_template                  | @80.10_Autoplay04_AllProductTemplates Горизонтально - Большая картинка   | @80.12_Autoplay04_AllProductTemplates Горизонтально - Большая картинка (RTL)   |
+      | default_template                     | @80.20_Autoplay04_AllProductTemplates Горизонтально - Стандартный шаблон | @80.22_Autoplay04_AllProductTemplates Горизонтально - Стандартный шаблон (RTL) |
+      | abt__ut2_three_columns_template      | @80.30_Autoplay04_AllProductTemplates Горизонтально - Трехколоночный     | @80.32_Autoplay04_AllProductTemplates Горизонтально - Трехколоночный (RTL)     |
+      | abt__ut2_bigpicture_gallery_template | @80.40_Autoplay04_AllProductTemplates Горизонтально - Галерея            | @80.42_Autoplay04_AllProductTemplates Горизонтально - Галерея (RTL)            |
+      | abt__ut2_cascade_gallery_template    | @80.50_Autoplay04_AllProductTemplates Горизонтально - Каскад             | @80.52_Autoplay04_AllProductTemplates Горизонтально - Каскад (RTL)             |
