@@ -49,7 +49,7 @@ public class AssertsOnStorefront {
 
                 case "Количество видео во вкладке товара равно":
                     tab_VideoGallery.scrollIntoCenter().click();
-                    softAssert.assertEquals(videoQuantity.size(), value,
+                    softAssert.assertEquals(videoQuantity.size(), Integer.parseInt(value),
                             "Quantity of videos on the tab 'Video gallery' on the product page is not equal to " + value);
                     break;
 
