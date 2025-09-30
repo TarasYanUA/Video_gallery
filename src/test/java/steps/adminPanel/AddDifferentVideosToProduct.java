@@ -9,8 +9,8 @@ import static com.codeborne.selenide.Selenide.$;
 public class AddDifferentVideosToProduct {
     @And("Добавляем разные виды видео товару")
     public void addDifferentVideosToProduct() {
-        CsCartSettings csCartSettings = new CsCartSettings();
-        csCartSettings.tab_VideoGallery.click();
+        ProductSettings productSettings = new ProductSettings();
+        productSettings.tab_VideoGallery.click();
 
         if ($$("tr[id*='ab__vg_video_extra']").size() == 1) {
             //Добавляем видео с YouTube

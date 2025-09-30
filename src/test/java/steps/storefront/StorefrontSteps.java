@@ -38,7 +38,7 @@ public class StorefrontSteps {
 
     @And("Делаем скриншот видео с автовоспроизведением {string}")
     public void takeScreenshotOfVideoWithAutoplay(String screenshotName) {
-        storefront.videoWithAutoplay.scrollIntoView("{behavior: \"instant\", block: \"center\", inline: \"center\"}");
+        storefront.videoWithAutoplay.scrollIntoCenter();
         Selenide.sleep(3000);
         storefront.takeScreenshot(screenshotName);
     }
