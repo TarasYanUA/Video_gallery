@@ -9,6 +9,7 @@
 1) Следить за актуальностью библиотек (файл pom.xml);
 2) В класс hooks.DriverHooks добавить актуальную ссылку в константу BASIC_URL, на которой будут запускаться авто-тесты.
 3) В классе hooks.DriverHooks добавить товар в константу PRODUCT_NAME, для которого будут добавлены видео и с которым будут проходить все тесты.
+4) Установить Apache Maven - https://maven.apache.org/download.cgi и добавить его путь к bin в Path (C:\Program Files\ApacheMaven\apache-maven-3.9.14\bin)
 
 
 **Cucumber JSON Report отчёт**:
