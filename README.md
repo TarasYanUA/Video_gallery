@@ -1,4 +1,4 @@
-Модуль "Видео галерея" v3.7.0 + тема Юни2(Ult+MV+Ru) v4.18.4c. Лучше установить весь пакет темы Юни2.
+Модуль "Видео галерея" v3.7.1 + тема Юни2(Ult+MV+Ru) v4.20.1b. Лучше установить весь пакет темы Юни2.
 
 Запустить тесты можно:
 1) Через файл CucumberTestRunner (путь к файлу: src -- test -- java)
@@ -6,10 +6,10 @@
 
 
 **Условия для работоспособности авто-тестов:**
-1) Следить за актуальностью библиотек (файл pom.xml);
+1) Следить за актуальностью библиотек (файл pom.xml) - https://mvnrepository.com/;
 2) В класс hooks.DriverHooks добавить актуальную ссылку в константу BASIC_URL, на которой будут запускаться авто-тесты.
 3) В классе hooks.DriverHooks добавить товар в константу PRODUCT_NAME, для которого будут добавлены видео и с которым будут проходить все тесты.
-4) Установить Apache Maven - https://maven.apache.org/download.cgi и добавить его путь к bin в Path (C:\Program Files\ApacheMaven\apache-maven-3.9.14\bin)
+4) Установить Apache Maven - https://maven.apache.org/download.cgi и добавить его путь к bin в Path переменной среды (C:\Program Files\ApacheMaven\apache-maven-3.9.14\bin)
 
 
 **Cucumber JSON Report отчёт**:

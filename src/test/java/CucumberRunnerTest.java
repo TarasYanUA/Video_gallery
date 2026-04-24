@@ -5,7 +5,7 @@ import io.cucumber.testng.CucumberOptions;
         features = "src/test/resources/features",
         glue = {"hooks", "steps"},
         plugin = {"pretty", "html:target/cucumber_target.html", "json:target/cucumber.json"},
-        tags = "@90_VideoAsDefaultProductImage")
+        tags = "@40_NoGallery01_HorizontalView or @50_NoGallery02_VerticalView")
 /*
 @10_AddVideo or
 @20_Gallery01_VerticalView or @30_Gallery02_HorizontalView or
