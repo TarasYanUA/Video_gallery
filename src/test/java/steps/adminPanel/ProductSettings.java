@@ -77,7 +77,7 @@ public class ProductSettings implements CheckMenuToBeActive {
     }
 
     public void toggleSettingInTab_AbVideoGallery(String action, String settingName, String videoType) {
-        SelenideElement checkbox = $x("//option[@selected='' and text()='" + videoType + "']/../../../..//input[contains(@id, '" + settingName + "')]");
+        SelenideElement checkbox = $x("//option[@selected and contains(., '" + videoType + "')]/../../../..//input[contains(@id, '" + settingName + "')]");
 
         boolean shouldEnable = action.equalsIgnoreCase("Активируем");
         boolean isCurrentlySelected = checkbox.isSelected();
@@ -87,8 +87,8 @@ public class ProductSettings implements CheckMenuToBeActive {
     }
 
     public void selectValueForSetting_IconType(String iconType, String videoType) {
-        $x("//option[@selected='' and text()='" +
-                videoType + "']/../../../..//input[contains(@name, 'product_data[ab__vg_videos]')][@value='" + iconType + "']").click();
+        $x("//option[@selected and contains(., '" +
+                videoType + "')]/../../../..//input[contains(@name, 'product_data[ab__vg_videos]')][@value='" + iconType + "']").click();
     }
 
     public void addImageForVideo(String image) {
